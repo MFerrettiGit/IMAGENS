@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco de Imagens — M. Ferretti</title>
+<style>
+  :root{
+    --azul:#0d3b66;
+    --azul-claro:#1d5d99;
+    --cinza:#f2f4f7;
+    --borda:#e1e5ea;
+    --texto:#1c2733;
+    --suave:#6b7785;
+    --amarelo:#ffd23f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--cinza);
+    color:var(--texto);
+  }
+  header{
+    background:linear-gradient(135deg,var(--azul),var(--azul-claro));
+    color:#fff;
+    padding:24px 20px 20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+  }
+  .header-top{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .logo{
+    width:46px;height:46px;border-radius:10px;background:var(--amarelo);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--azul);font-size:20px;flex:0 0 auto;
+  }
+  .titulo h1{font-size:22px;font-weight:700;line-height:1.1}
+  .titulo p{font-size:13px;opacity:.85;margin-top:2px}
+  .busca-wrap{max-width:1200px;margin:18px auto 0;position:relative}
+  #busca{
+    width:100%;padding:14px 46px 14px 16px;border:none;border-radius:10px;
+    font-size:16px;outline:none;box-shadow:0 2px 8px rgba(0,0,0,.12);
+  }
+  .busca-wrap svg{
+    position:absolute;right:16px;top:50%;transform:translateY(-50%);
+    width:20px;height:20px;fill:var(--suave);pointer-events:none;
+  }
+  main{max-width:1200px;margin:0 auto;padding:22px 20px 60px}
+  .contador{font-size:13px;color:var(--suave);margin-bottom:14px}
+  .grid{
+    display:grid;gap:18px;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  }
+  .card{
+    background:#fff;border:1px solid var(--borda);border-radius:14px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .12s ease,box-shadow .12s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(13,59,102,.12)}
+  .img-box{
+    aspect-ratio:1/1;background:#fafbfc;display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--borda);overflow:hidden;cursor:zoom-in;position:relative;
+  }
+  .img-box img{width:100%;height:100%;object-fit:contain}
+  .sem-img{color:var(--suave);font-size:13px;text-align:center;padding:10px}
+  .info{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .cod{font-size:12px;font-weight:700;color:var(--azul-claro);letter-spacing:.3px}
+  .desc{font-size:14px;font-weight:600;line-height:1.25;flex:1}
+  .ean{font-size:12px;color:var(--suave);font-variant-numeric:tabular-nums}
+  .baixar{
+    margin:0 14px 14px;padding:10px;border:none;border-radius:9px;cursor:pointer;
+    background:var(--azul);color:#fff;font-size:14px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
+    transition:background .12s ease;
+  }
+  .baixar:hover{background:var(--azul-claro)}
+  .baixar.disabled{background:#c7ccd2;cursor:not-allowed;pointer-events:none}
+  .baixar svg{width:16px;height:16px;fill:#fff}
+  .vazio{text-align:center;color:var(--suave);padding:60px 20px;font-size:15px}
+  /* Lightbox */
+  #lightbox{
+    position:fixed;inset:0;background:rgba(10,20,30,.9);display:none;
+    align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out;
+  }
+  #lightbox img{max-width:92vw;max-height:82vh;object-fit:contain;border-radius:8px;background:#fff}
+  #lightbox .lb-bar{position:absolute;bottom:24px;display:flex;gap:12px}
+  #lightbox .lb-bar a{
+    background:var(--azul);color:#fff;text-decoration:none;padding:10px 18px;border-radius:9px;
+    font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;
+  }
+  #lightbox .lb-bar a svg{width:16px;height:16px;fill:#fff}
+  footer{text-align:center;color:var(--suave);font-size:12px;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-top">
+    <div class="logo">MF</div>
+    <div class="titulo">
+      <h1>Banco de Imagens</h1>
+      <p>M. Ferretti — fotos de produtos para a equipe de vendas</p>
+    </div>
+  </div>
+  <div class="busca-wrap">
+    <input id="busca" type="search" placeholder="Pesquisar por código, descrição ou EAN..." autocomplete="off">
+    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+  </div>
+</header>
+
+<main>
+  <div class="contador" id="contador"></div>
+  <div class="grid" id="grid"></div>
+  <div class="vazio" id="vazio" style="display:none">Nenhum produto encontrado.</div>
+</main>
+
+<div id="lightbox">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar">
+    <a id="lb-baixar" href="#" download>
+      <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      Baixar imagem
+    </a>
+  </div>
+</div>
+
+<footer>M. Ferretti · Banco de Imagens de Produtos</footer>
+
+<script src="produtos.js"></script>
+<script>
+  // Extensões tentadas para cada imagem (a foto é nomeada pelo CÓDIGO do produto)
+  var EXTENSOES = ["jpg","jpeg","png","webp"];
+  var PASTA = "imagens/";
+
+  var grid = document.getElementById("grid");
+  var vazio = document.getElementById("vazio");
+  var contador = document.getElementById("contador");
+  var busca = document.getElementById("busca");
+  var lightbox = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lb-img");
+  var lbBaixar = document.getElementById("lb-baixar");
+
+  function normaliza(s){
+    return (s || "").toString().toLowerCase()
+      .normalize("NFD").replace(/[̀-ͯ]/g,"");
+  }
+
+  // Tenta carregar a imagem testando cada extensão; ao achar, atualiza card e download.
+  function resolveImagem(card, codigo){
+    var imgBox = card.querySelector(".img-box");
+    var img = imgBox.querySelector("img");
+    var botao = card.querySelector(".baixar");
+    var i = 0;
+    function tenta(){
+      if(i >= EXTENSOES.length){
+        // Nenhuma imagem encontrada
+        imgBox.innerHTML = '<span class="sem-img">Sem imagem<br>cadastrada</span>';
+        imgBox.style.cursor = "default";
+        botao.classList.add("disabled");
+        botao.textContent = "Sem imagem";
+        return;
+      }
+      var url = PASTA + codigo + "." + EXTENSOES[i];
+      var teste = new Image();
+      teste.onload = function(){
+        img.src = url;
+        botao.href = url;
+        botao.setAttribute("download", codigo + "." + EXTENSOES[i]);
+        imgBox.onclick = function(){ abreLightbox(url, codigo + "." + EXTENSOES[i]); };
+      };
+      teste.onerror = function(){ i++; tenta(); };
+      teste.src = url;
+    }
+    tenta();
+  }
+
+  function criaCard(p){
+    var card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML =
+      '<div class="img-box"><img alt="' + (p.descricao||"") + '"></div>' +
+      '<div class="info">' +
+        '<span class="cod">COD ' + (p.codigo||"") + '</span>' +
+        '<span class="desc">' + (p.descricao||"") + '</span>' +
+        '<span class="ean">EAN: ' + (p.ean || "—") + '</span>' +
+      '</div>' +
+      '<a class="baixar" href="#"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Baixar imagem</a>';
+    grid.appendChild(card);
+    resolveImagem(card, p.codigo);
+    return card;
+  }
+
+  function abreLightbox(url, nome){
+    lbImg.src = url;
+    lbBaixar.href = url;
+    lbBaixar.setAttribute("download", nome);
+    lightbox.style.display = "flex";
+  }
+  lightbox.addEventListener("click", function(e){
+    if(e.target === lbBaixar || lbBaixar.contains(e.target)) return;
+    lightbox.style.display = "none";
+    lbImg.src = "";
+  });
+
+  var lista = (typeof PRODUTOS !== "undefined") ? PRODUTOS.slice() : [];
+
+  function render(filtro){
+    grid.innerHTML = "";
+    var f = normaliza(filtro);
+    var vis = lista.filter(function(p){
+      if(!f) return true;
+      return normaliza(p.codigo).indexOf(f) > -1 ||
+             normaliza(p.descricao).indexOf(f) > -1 ||
+             normaliza(p.ean).indexOf(f) > -1;
+    });
+    vis.forEach(criaCard);
+    vazio.style.display = vis.length ? "none" : "block";
+    contador.textContent = vis.length + " de " + lista.length + " produto(s)";
+  }
+
+  var t;
+  busca.addEventListener("input", function(){
+    clearTimeout(t);
+    t = setTimeout(function(){ render(busca.value); }, 120);
+  });
+
+  render("");
+</script>
+</body>
+</html>
