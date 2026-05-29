@@ -15,7 +15,8 @@
    FILTROS DE "ATIVO E PARA VENDA":
      B1_MSBLQL <> '1'                -> exclui bloqueio de tela padrao Protheus
      RTRIM(B1_ZZFORAL) = 'EM LINHA'  -> mantem SO os ativos (exclui 'FORA LINHA' e 'SUSPENSO')
-     B1_ZZMARCA IN (...24 marcas...) -> mostra so as marcas da ficha de cadastro
+     B1_ZZMARCA IN (...23 marcas...) -> mostra so as marcas da ficha (NOB removida)
+     B1_COD NOT LIKE 'BRI%'          -> exclui codigos de produto iniciados em 'BRI'
      D_E_L_E_T_ = ' '                -> exclui registros deletados
    (B1_ZZFORAL e TEXTO com valores: 'EM LINHA', 'FORA LINHA', 'SUSPENSO'.)
    (Marcas extraidas de: FICHA CADASTRO M FERRETTI - 2026.05.26.xls, coluna MARCA.)
@@ -43,8 +44,9 @@ WHERE SB1.B1_FILIAL   = '01'
   AND RTRIM(SB1.B1_ZZFORAL) = 'EM LINHA' -- mantem so ativos (exclui fora de linha e suspenso)
   AND RTRIM(SB1.B1_ZZMARCA) IN (         -- so as marcas da ficha de cadastro
         'AER','BAB','BEL','BRI','CLO','CRE','DEN','FAR','GAL','KIN','LEI','MUL',
-        'NAT','NOB','PRU','SEM','SHO','SUS','TEC','TEN','TENW','UNI','WHI','YAM'
+        'NAT','PRU','SEM','SHO','SUS','TEC','TEN','TENW','UNI','WHI','YAM'
       )
+  AND SB1.B1_COD NOT LIKE 'BRI%'         -- exclui codigos de produto iniciados em BRI
 ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
 
 
@@ -71,6 +73,7 @@ WHERE SB1.B1_FILIAL   = '01'
   AND RTRIM(SB1.B1_ZZFORAL) = 'EM LINHA'
   AND RTRIM(SB1.B1_ZZMARCA) IN (
         'AER','BAB','BEL','BRI','CLO','CRE','DEN','FAR','GAL','KIN','LEI','MUL',
-        'NAT','NOB','PRU','SEM','SHO','SUS','TEC','TEN','TENW','UNI','WHI','YAM'
+        'NAT','PRU','SEM','SHO','SUS','TEC','TEN','TENW','UNI','WHI','YAM'
       )
+  AND SB1.B1_COD NOT LIKE 'BRI%'         -- exclui codigos de produto iniciados em BRI
 ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
