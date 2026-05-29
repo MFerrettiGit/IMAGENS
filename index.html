@@ -31,9 +31,10 @@
     max-width:1200px;margin:0 auto;
     display:flex;align-items:center;gap:14px;flex-wrap:wrap;
   }
+  .header-top{gap:18px}
   .logo-img{height:46px;width:auto;display:block;flex:0 0 auto}
-  .titulo{flex:1 1 auto}
-  .titulo h1{font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-align:center;letter-spacing:3px}
+  .titulo{flex:0 1 auto}
+  .titulo h1{font-size:clamp(26px,4vw,46px);font-weight:800;line-height:1.05;text-align:left;letter-spacing:2px}
   .controles{max-width:1200px;margin:18px auto 0;display:flex;flex-wrap:wrap;gap:10px}
   .busca-wrap{position:relative;flex:1 1 260px}
   #busca{
@@ -77,7 +78,15 @@
   .cod{font-size:12px;font-weight:700;color:var(--azul-claro);letter-spacing:.3px}
   .desc{font-size:14px;font-weight:600;line-height:1.25;flex:1}
   .ean{font-size:12px;color:var(--suave);font-variant-numeric:tabular-nums}
-  .forn{font-size:11px;color:var(--suave);text-transform:uppercase;letter-spacing:.2px}
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;font-size:11.5px;color:var(--suave);font-variant-numeric:tabular-nums}
+  .meta b{color:var(--texto);font-weight:700}
+  .meta span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* caixa de selecao do produto */
+  .sel-wrap{position:absolute;top:8px;right:8px;background:#fff;border-radius:6px;padding:3px;line-height:0;box-shadow:0 1px 5px rgba(0,0,0,.22);cursor:pointer;z-index:2}
+  .sel-prod{width:19px;height:19px;cursor:pointer;accent-color:var(--azul);margin:0;display:block}
+  /* caixa de selecao da marca (no separador) */
+  .sel-marca-wrap{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:var(--suave);font-weight:600}
+  .sel-marca{width:18px;height:18px;cursor:pointer;accent-color:var(--azul);margin:0}
   /* Separador de marca (logo uma vez por grupo) */
   .marca-sep{
     grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -130,11 +139,16 @@
   .acoes-dir{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .export-btn{padding:8px 12px;border:none;border-radius:8px;background:var(--azul);color:#fff;font-size:13px;font-weight:600;cursor:pointer}
   .export-btn:hover{background:var(--azul-claro)}
-  /* Area de impressao (PDF) — escondida na tela */
-  #printArea{display:none}
+  .export-btn.alt{background:#e6007e}
+  .export-btn.alt:hover{background:#b8005f}
+  .sel-info{font-size:12px;color:var(--azul);font-weight:700}
+  /* Areas de impressao (PDF) — escondidas na tela */
+  #printArea, #apresArea{display:none}
   @media print{
     body>header, body>main, body>footer, #dadosModal, #lightbox{display:none !important}
-    #printArea{display:block !important}
+    #printArea, #apresArea{display:none !important}
+    body.modo-cad #printArea{display:block !important}
+    body.modo-apres #apresArea{display:block !important}
     @page{size:A4 portrait;margin:6mm}
     /* cabecalho enxuto no topo da 1a pagina (nao gera pagina propria) */
     #printArea .ph{text-align:center;font-size:7.5pt;color:#333;margin:0 0 2mm 0;font-weight:600}
@@ -157,6 +171,28 @@
     #printArea .dc-campo{margin-bottom:1px}
     #printArea .dc-campo .dc-rotulo{font-size:6pt;letter-spacing:.1px;line-height:1.05}
     #printArea .dc-campo .dc-valor{font-size:7.6pt;line-height:1.1}
+
+    /* ===== Apresentação de produtos (visual, com cores da marca) ===== */
+    body.modo-apres #apresArea, body.modo-apres #apresArea *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    #apresArea .ap-head{display:flex;align-items:center;gap:10px;border-bottom:3px solid #0d3b66;padding-bottom:5px;margin-bottom:5mm}
+    #apresArea .ap-flogo{height:34px}
+    #apresArea .ap-head span{font-size:8pt;color:#555;font-weight:700;letter-spacing:.5px}
+    #apresArea .ap-marca{margin-bottom:6mm}
+    #apresArea .ap-banner{display:flex;align-items:center;gap:12px;border-radius:9px;padding:8px 16px;color:#fff;margin-bottom:3mm;break-inside:avoid;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+    #apresArea .ap-logo{height:34px;background:#fff;border-radius:6px;padding:3px 7px}
+    #apresArea .ap-bnome{font-size:13pt;font-weight:800;letter-spacing:1px}
+    #apresArea .ap-bmarca{margin-left:auto;font-size:9pt;font-weight:700;letter-spacing:2px;opacity:.9;border:1px solid rgba(255,255,255,.6);padding:2px 8px;border-radius:20px}
+    #apresArea .ap-grid{display:flex;flex-wrap:wrap;gap:4mm}
+    #apresArea .ap-card{width:calc((100% - 8mm)/3);border:2px solid #ccc;border-radius:11px;overflow:hidden;background:#fff;display:flex;flex-direction:column;break-inside:avoid;page-break-inside:avoid;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+    #apresArea .ap-bar{height:6px}
+    #apresArea .ap-img{height:42mm;display:flex;align-items:center;justify-content:center;background:#f7f9fc;padding:3mm;position:relative}
+    #apresArea .ap-img img{max-width:100%;max-height:100%;object-fit:contain}
+    #apresArea .ap-img.sem::after{content:'sem imagem';color:#b9c0d0;font-size:7pt;font-style:italic}
+    #apresArea .ap-desc{font-size:8.2pt;font-weight:800;line-height:1.12;padding:5px 9px 1px;min-height:24px;color:#1c2733}
+    #apresArea .ap-cod{font-size:7.5pt;font-weight:700;padding:0 9px 4px;font-family:Consolas,monospace}
+    #apresArea .ap-campos{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0 9px 8px;margin-top:auto}
+    #apresArea .ap-campos div{font-size:6.9pt;color:#2a2f3a;border-top:1px solid #eef0f4;padding:2px 0}
+    #apresArea .ap-campos b{display:inline-block;min-width:26px;color:#9aa1b0;font-weight:800}
   }
   /* Lightbox */
   #lightbox{
@@ -194,8 +230,11 @@
   <div class="barra-info">
     <span class="contador" id="contador"></span>
     <div class="acoes-dir">
-      <button class="export-btn" id="btnPdf" type="button">📄 Exportar PDF</button>
-      <button class="export-btn" id="btnXlsx" type="button">📊 Exportar XLSX</button>
+      <span class="sel-info" id="selInfo"></span>
+      <button class="limpar" id="limparSel" style="display:none">Limpar seleção</button>
+      <button class="export-btn alt" id="btnApres" type="button">🖼️ PDF Apresentação</button>
+      <button class="export-btn" id="btnPdf" type="button">📄 PDF Cadastral</button>
+      <button class="export-btn" id="btnXlsx" type="button">📊 XLSX</button>
       <button class="limpar" id="limpar" style="display:none">Limpar filtros</button>
     </div>
   </div>
@@ -204,6 +243,7 @@
 </main>
 
 <div id="printArea"></div>
+<div id="apresArea"></div>
 
 <div id="dadosModal">
   <div class="dc-wrap">
@@ -222,7 +262,7 @@
   </div>
 </div>
 
-<footer>M. Ferretti · Banco de Imagens de Produtos</footer>
+<footer>M. Ferretti · Catálogo Virtual</footer>
 
 <script src="produtos.js"></script>
 <script src="cadastro.js"></script>
@@ -240,6 +280,8 @@
   var lightbox = document.getElementById("lightbox");
   var lbImg = document.getElementById("lb-img");
   var lbBaixar = document.getElementById("lb-baixar");
+
+  var selecionados = {};  // codigos marcados para exportar
 
   function normaliza(s){
     return (s || "").toString().toLowerCase()
@@ -283,18 +325,31 @@
   function criaCard(p){
     var card = document.createElement("div");
     card.className = "card";
+    var c = cadDe(p);
     var marca = p.marca ? '<span class="marca-badge">' + p.marca + '</span>' : '';
+    var checked = selecionados[p.codigo] ? ' checked' : '';
     card.innerHTML =
-      '<div class="img-box">' + marca + '<img alt="' + (p.descricao||"") + '"></div>' +
+      '<div class="img-box">' + marca +
+        '<label class="sel-wrap" title="Selecionar para exportar"><input type="checkbox" class="sel-prod"'+checked+'></label>' +
+        '<img alt="' + (p.descricao||"") + '"></div>' +
       '<div class="info">' +
         '<span class="cod">COD ' + (p.codigo||"") + '</span>' +
         '<span class="desc">' + (p.descricao||"") + '</span>' +
-        '<span class="ean">EAN: ' + (p.ean || "—") + '</span>' +
-        '<span class="forn">' + (p.fornecedor || "") + '</span>' +
+        '<div class="meta">' +
+          '<span><b>EAN</b> ' + (p.ean||c.EAN||"—") + '</span>' +
+          '<span><b>DUN</b> ' + (c.DUN||"—") + '</span>' +
+          '<span><b>NCM</b> ' + (c.NCM||"—") + '</span>' +
+          '<span><b>Cx</b> ' + (c.CAIXA||"—") + '</span>' +
+        '</div>' +
       '</div>' +
       '<a class="baixar" href="#"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Baixar imagem</a>' +
       '<button class="dados-btn" type="button"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Dados cadastrais</button>';
     grid.appendChild(card);
+    var chk = card.querySelector(".sel-prod");
+    chk.addEventListener("change", function(){
+      if(chk.checked) selecionados[p.codigo] = true; else delete selecionados[p.codigo];
+      atualizaSelInfo();
+    });
     card.querySelector(".dados-btn").addEventListener("click", function(){ abreDados(p.codigo); });
     resolveImagem(card, p.codigo);
     return card;
@@ -363,10 +418,38 @@
   dadosModal.addEventListener("click", function(e){ if(e.target === dadosModal) fechaDados(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") fechaDados(); });
 
-  // ===== Exportacao PDF / XLSX do conjunto FILTRADO =====
+  // ===== Exportacao PDF / XLSX =====
   var filtrados = [];
   var printArea = document.getElementById("printArea");
+  var apresArea = document.getElementById("apresArea");
   function cadDe(p){ return CAD[p.codigo] || { CODIGO:p.codigo, DESCRICAO:p.descricao, MARCA:p.marca, FORNECEDOR:p.fornecedor, EAN:p.ean }; }
+
+  // Alvo da exportacao: se houver produtos SELECIONADOS, usa eles; senao, o conjunto filtrado.
+  function alvoExport(){
+    var sel = Object.keys(selecionados);
+    if(sel.length){ return lista.filter(function(p){ return selecionados[p.codigo]; }); }
+    return filtrados;
+  }
+  function atualizaSelInfo(){
+    var n = Object.keys(selecionados).length;
+    var el = document.getElementById("selInfo");
+    if(el) el.textContent = n ? (n + " selecionado(s)") : "";
+    var lc = document.getElementById("limparSel");
+    if(lc) lc.style.display = n ? "inline" : "none";
+  }
+
+  // Cores caracteristicas por marca (apresentacao)
+  var MARCA_COR = {
+    AER:"#00833e", BAB:"#3aa0d1", BEL:"#e6007e", BRI:"#c8102e", CLO:"#2e7d32",
+    CRE:"#e6007e", DEN:"#0067b1", FAR:"#00857c", GAL:"#1b3a6b", KIN:"#b8860b",
+    LEI:"#e5447d", MUL:"#ee7203", NAT:"#2e9e4f", PRU:"#222222", SEM:"#1d5d99",
+    SHO:"#d52b1e", SUS:"#0072bc", TEC:"#f0a500", TEN:"#0a7d4d", TENW:"#0a7d4d",
+    UNI:"#ee7203", WHI:"#00a7e1", YAM:"#c8102e"
+  };
+  function corMarca(m){ return MARCA_COR[m] || "#0d3b66"; }
+  function escurece(hex,f){ f=(f===undefined)?0.72:f; var n=parseInt(hex.slice(1),16);
+    var r=Math.round(((n>>16)&255)*f), g=Math.round(((n>>8)&255)*f), b=Math.round((n&255)*f);
+    return 'rgb('+r+','+g+','+b+')'; }
   function ctxStr(){
     var c=[]; if(selMarca.value) c.push('Marca: '+selMarca.value);
     if(busca.value.trim()) c.push('Busca: "'+busca.value.trim()+'"');
@@ -386,14 +469,16 @@
     ['LASTRO','PALETE_LASTRO'],['ALT. PALETE','PALETE_ALT'],['CX/PALETE','_PALETE_TOTAL']
   ];
   function exportarXLSX(){
-    if(!filtrados.length){ alert('Não há produtos filtrados para exportar.'); return; }
+    var alvo = alvoExport();
+    if(!alvo.length){ alert('Selecione produtos ou ajuste o filtro para exportar.'); return; }
 
     var hoje = new Date().toLocaleDateString('pt-BR');
-    var filtroInfo = filtrados.length+' produto(s)'+ctxStr()+' · '+hoje;
+    var selN = Object.keys(selecionados).length;
+    var filtroInfo = alvo.length+' produto(s)'+(selN?' (selecionados)':ctxStr())+' · '+hoje;
 
     // Agrupa por marca mantendo a ordem de aparição
     var grupos = {}, ordemMarca = [];
-    filtrados.forEach(function(p){
+    alvo.forEach(function(p){
       if(!grupos[p.marca]){ grupos[p.marca]=[]; ordemMarca.push(p.marca); }
       grupos[p.marca].push(p);
     });
@@ -500,13 +585,64 @@
     setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); },1000);
   }
   function exportarPDF(){
-    if(!filtrados.length){ alert('Não há produtos filtrados para exportar.'); return; }
-    printArea.innerHTML = '<p class="ph">Dados cadastrais — '+filtrados.length+' produto(s)'+ctxStr()+'  ·  '+new Date().toLocaleDateString('pt-BR')+'</p>'
-      + filtrados.map(function(prod){ return dcCard(cadDe(prod)); }).join('');
+    var alvo = alvoExport();
+    if(!alvo.length){ alert('Selecione produtos ou ajuste o filtro para exportar.'); return; }
+    var selN = Object.keys(selecionados).length;
+    printArea.innerHTML = '<p class="ph">Dados cadastrais — '+alvo.length+' produto(s)'+(selN?' (selecionados)':ctxStr())+'  ·  '+new Date().toLocaleDateString('pt-BR')+'</p>'
+      + alvo.map(function(prod){ return dcCard(cadDe(prod)); }).join('');
+    document.body.classList.add('modo-cad');
     window.print();
   }
+
+  // ===== PDF de APRESENTACAO (visual, com cores da marca) =====
+  function exportarApresentacao(){
+    var alvo = alvoExport();
+    if(!alvo.length){ alert('Selecione produtos ou ajuste o filtro para a apresentação.'); return; }
+    var grupos = {}, ordem = [];
+    alvo.forEach(function(p){ if(!grupos[p.marca]){ grupos[p.marca]=[]; ordem.push(p.marca); } grupos[p.marca].push(p); });
+
+    var html = '';
+    ordem.forEach(function(m){
+      var cor = corMarca(m), logo = MARCA_LOGO[m];
+      html += '<section class="ap-marca">'
+        + '<div class="ap-banner" style="background:linear-gradient(135deg,'+cor+','+escurece(cor)+')">'
+        +   (logo ? '<img class="ap-logo" src="'+logo+'" alt="'+m+'">' : '<span class="ap-bnome">'+m+'</span>')
+        +   '<span class="ap-bmarca">'+m+'</span>'
+        + '</div><div class="ap-grid">';
+      grupos[m].forEach(function(prod){
+        var c = cadDe(prod);
+        html += '<div class="ap-card" style="border-color:'+cor+'">'
+          + '<div class="ap-bar" style="background:'+cor+'"></div>'
+          + '<div class="ap-img"><img src="'+PASTA+prod.codigo+'.png" alt="" '
+          +   'onerror="this.style.display=\'none\';this.parentNode.classList.add(\'sem\')"></div>'
+          + '<div class="ap-desc">'+(prod.descricao||'')+'</div>'
+          + '<div class="ap-cod" style="color:'+cor+'">'+(prod.codigo||'')+'</div>'
+          + '<div class="ap-campos">'
+          +   '<div><b>EAN</b>'+(prod.ean||c.EAN||'—')+'</div>'
+          +   '<div><b>DUN</b>'+(c.DUN||'—')+'</div>'
+          +   '<div><b>NCM</b>'+(c.NCM||'—')+'</div>'
+          +   '<div><b>Cx</b>'+(c.CAIXA||'—')+'</div>'
+          + '</div></div>';
+      });
+      html += '</div></section>';
+    });
+    apresArea.innerHTML = '<div class="ap-head"><img src="logo-ferretti.png" class="ap-flogo" alt="Ferretti">'
+      + '<span>CATÁLOGO DE PRODUTOS · '+alvo.length+' item(ns) · '+new Date().toLocaleDateString('pt-BR')+'</span></div>'
+      + html;
+    document.body.classList.add('modo-apres');
+    window.print();
+  }
+
+  window.addEventListener('afterprint', function(){
+    document.body.classList.remove('modo-cad','modo-apres');
+  });
+
   document.getElementById("btnXlsx").addEventListener("click", exportarXLSX);
   document.getElementById("btnPdf").addEventListener("click", exportarPDF);
+  document.getElementById("btnApres").addEventListener("click", exportarApresentacao);
+  document.getElementById("limparSel").addEventListener("click", function(){
+    selecionados = {}; atualizaSelInfo(); render();
+  });
 
   // ===== Mapa marca → arquivo de logo (pasta marcas/) =====
   var MARCA_LOGO = {
@@ -566,16 +702,24 @@
              normaliza(p.marca).indexOf(f) > -1;
     });
     filtrados = vis;
+    // agrupa visíveis por marca (para o checkbox "selecionar marca")
+    var porMarca = {};
+    vis.forEach(function(p){ (porMarca[p.marca] = porMarca[p.marca] || []).push(p); });
+
     var marcaAtual = null;
     vis.forEach(function(p){
       // Insere separador com logo uma única vez por grupo de marca
       if(p.marca !== marcaAtual){
         marcaAtual = p.marca;
         var logoSrc = MARCA_LOGO[p.marca];
+        var grupo = porMarca[p.marca];
+        var todosSel = grupo.every(function(x){ return selecionados[x.codigo]; });
         var sep = document.createElement("div");
         sep.className = "marca-sep";
         sep.innerHTML =
           '<div class="marca-sep-in">'
+          + '<label class="sel-marca-wrap" title="Selecionar toda a marca">'
+          +   '<input type="checkbox" class="sel-marca"'+(todosSel?' checked':'')+'></label>'
           + (logoSrc
               ? '<img class="marca-logo" src="'+logoSrc+'" alt="'+p.marca+'">'
               : '<span class="marca-cod">'+p.marca+'</span>')
@@ -586,12 +730,20 @@
                 + 'logo</a>'
               : '');
         grid.appendChild(sep);
+        (function(g){
+          var cb = sep.querySelector('.sel-marca');
+          cb.addEventListener('change', function(){
+            g.forEach(function(x){ if(cb.checked) selecionados[x.codigo]=true; else delete selecionados[x.codigo]; });
+            render();
+          });
+        })(grupo);
       }
       criaCard(p);
     });
     vazio.style.display = vis.length ? "none" : "block";
     contador.textContent = vis.length + " de " + lista.length + " produto(s)";
     btnLimpar.style.display = (f || fMarca) ? "inline" : "none";
+    atualizaSelInfo();
   }
 
   var t;
