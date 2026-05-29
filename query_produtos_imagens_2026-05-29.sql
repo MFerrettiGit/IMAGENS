@@ -15,10 +15,11 @@
    FILTROS DE "ATIVO E PARA VENDA":
      B1_MSBLQL <> '1'                -> exclui bloqueio de tela padrao Protheus
      RTRIM(B1_ZZFORAL) = 'EM LINHA'  -> mantem SO os ativos (exclui 'FORA LINHA' e 'SUSPENSO')
-     B1_ZZMARCA <> 'BRI'             -> exclui BRINDES (marca 'BRI')
+     B1_ZZMARCA IN (...24 marcas...) -> mostra so as marcas da ficha de cadastro
      D_E_L_E_T_ = ' '                -> exclui registros deletados
    (B1_ZZFORAL e TEXTO com valores: 'EM LINHA', 'FORA LINHA', 'SUSPENSO'.)
-   (Obs.: existe tambem B1_ZZMSBLQ = "Bloqueio Ferretti", que NAO e filtrado.)
+   (Marcas extraidas de: FICHA CADASTRO M FERRETTI - 2026.05.26.xls, coluna MARCA.)
+   (BRI = marca BRICS, NAO e brinde. B1_ZZMSBLQ "Bloqueio Ferretti" NAO e filtrado.)
    ===================================================================== */
 
 /* ---------------------------------------------------------------------
@@ -40,7 +41,10 @@ WHERE SB1.B1_FILIAL   = '01'
   AND SB1.D_E_L_E_T_  = ' '
   AND SB1.B1_MSBLQL  <> '1'              -- exclui bloqueio de tela padrao
   AND RTRIM(SB1.B1_ZZFORAL) = 'EM LINHA' -- mantem so ativos (exclui fora de linha e suspenso)
-  AND SB1.B1_ZZMARCA <> 'BRI'            -- exclui brindes
+  AND RTRIM(SB1.B1_ZZMARCA) IN (         -- so as marcas da ficha de cadastro
+        'AER','BAB','BEL','BRI','CLO','CRE','DEN','FAR','GAL','KIN','LEI','MUL',
+        'NAT','NOB','PRU','SEM','SHO','SUS','TEC','TEN','TENW','UNI','WHI','YAM'
+      )
 ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
 
 
@@ -65,5 +69,8 @@ WHERE SB1.B1_FILIAL   = '01'
   AND SB1.D_E_L_E_T_  = ' '
   AND SB1.B1_MSBLQL  <> '1'
   AND RTRIM(SB1.B1_ZZFORAL) = 'EM LINHA'
-  AND SB1.B1_ZZMARCA <> 'BRI'
+  AND RTRIM(SB1.B1_ZZMARCA) IN (
+        'AER','BAB','BEL','BRI','CLO','CRE','DEN','FAR','GAL','KIN','LEI','MUL',
+        'NAT','NOB','PRU','SEM','SHO','SUS','TEC','TEN','TENW','UNI','WHI','YAM'
+      )
 ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
