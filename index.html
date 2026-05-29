@@ -30,11 +30,7 @@
     max-width:1200px;margin:0 auto;
     display:flex;align-items:center;gap:14px;flex-wrap:wrap;
   }
-  .logo{
-    width:46px;height:46px;border-radius:10px;background:var(--amarelo);
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;color:var(--azul);font-size:20px;flex:0 0 auto;
-  }
+  .logo-img{height:46px;width:auto;display:block;flex:0 0 auto}
   .titulo h1{font-size:22px;font-weight:700;line-height:1.1}
   .titulo p{font-size:13px;opacity:.85;margin-top:2px}
   .controles{max-width:1200px;margin:18px auto 0;display:flex;flex-wrap:wrap;gap:10px}
@@ -109,10 +105,10 @@
 <body>
 <header>
   <div class="header-top">
-    <div class="logo">MF</div>
+    <img class="logo-img" src="logo-ferretti.png" alt="Ferretti distribuidora">
     <div class="titulo">
       <h1>Banco de Imagens</h1>
-      <p>M. Ferretti — fotos de produtos para a equipe de vendas</p>
+      <p>Fotos de produtos para a equipe de vendas</p>
     </div>
   </div>
   <div class="controles">
@@ -120,7 +116,6 @@
       <input id="busca" type="search" placeholder="Pesquisar por código, descrição ou EAN..." autocomplete="off">
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
     </div>
-    <select id="filtroFornecedor" class="filtro"><option value="">Todos os fornecedores</option></select>
     <select id="filtroMarca" class="filtro"><option value="">Todas as marcas</option></select>
   </div>
 </header>
@@ -156,7 +151,6 @@
   var vazio = document.getElementById("vazio");
   var contador = document.getElementById("contador");
   var busca = document.getElementById("busca");
-  var selForn = document.getElementById("filtroFornecedor");
   var selMarca = document.getElementById("filtroMarca");
   var btnLimpar = document.getElementById("limpar");
   var lightbox = document.getElementById("lightbox");
@@ -244,22 +238,16 @@
     });
   }
   (function montaFiltros(){
-    var forns = {}, marcas = {};
-    lista.forEach(function(p){
-      if(p.fornecedor) forns[p.fornecedor] = true;
-      if(p.marca) marcas[p.marca] = true;
-    });
-    preencheSelect(selForn, Object.keys(forns));
+    var marcas = {};
+    lista.forEach(function(p){ if(p.marca) marcas[p.marca] = true; });
     preencheSelect(selMarca, Object.keys(marcas));
   })();
 
   function render(){
     grid.innerHTML = "";
     var f = normaliza(busca.value);
-    var fForn = selForn.value;
     var fMarca = selMarca.value;
     var vis = lista.filter(function(p){
-      if(fForn && p.fornecedor !== fForn) return false;
       if(fMarca && p.marca !== fMarca) return false;
       if(!f) return true;
       return normaliza(p.codigo).indexOf(f) > -1 ||
@@ -271,7 +259,7 @@
     vis.forEach(criaCard);
     vazio.style.display = vis.length ? "none" : "block";
     contador.textContent = vis.length + " de " + lista.length + " produto(s)";
-    btnLimpar.style.display = (f || fForn || fMarca) ? "inline" : "none";
+    btnLimpar.style.display = (f || fMarca) ? "inline" : "none";
   }
 
   var t;
@@ -279,10 +267,9 @@
     clearTimeout(t);
     t = setTimeout(render, 120);
   });
-  selForn.addEventListener("change", render);
   selMarca.addEventListener("change", render);
   btnLimpar.addEventListener("click", function(){
-    busca.value = ""; selForn.value = ""; selMarca.value = "";
+    busca.value = ""; selMarca.value = "";
     render();
   });
 
