@@ -32,8 +32,8 @@
     display:flex;align-items:center;gap:14px;flex-wrap:wrap;
   }
   .logo-img{height:46px;width:auto;display:block;flex:0 0 auto}
-  .titulo h1{font-size:22px;font-weight:700;line-height:1.1}
-  .titulo p{font-size:13px;opacity:.85;margin-top:2px}
+  .titulo{flex:1 1 auto}
+  .titulo h1{font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-align:center;letter-spacing:3px}
   .controles{max-width:1200px;margin:18px auto 0;display:flex;flex-wrap:wrap;gap:10px}
   .busca-wrap{position:relative;flex:1 1 260px}
   #busca{
@@ -178,8 +178,7 @@
   <div class="header-top">
     <img class="logo-img" src="logo-ferretti.png" alt="Ferretti distribuidora">
     <div class="titulo">
-      <h1>Banco de Imagens</h1>
-      <p>Fotos de produtos para a equipe de vendas</p>
+      <h1>CATÁLOGO VIRTUAL</h1>
     </div>
   </div>
   <div class="controles">
