@@ -13,12 +13,12 @@
      B1_ZZMARCA -> MARCA (código, ex.: 'UNI')
 
    FILTROS DE "ATIVO E PARA VENDA":
-     B1_MSBLQL  <> '1'     -> exclui bloqueio de tela padrao Protheus
-     B1_ZZFORAL <> 'S'     -> exclui produtos FORA DE LINHA (campo Ferretti)
-     B1_ZZMARCA <> 'BRI'   -> exclui BRINDES (marcados com marca 'BRI')
-     D_E_L_E_T_ = ' '      -> exclui registros deletados
-   (Obs.: existe tambem B1_ZZMSBLQ = "Bloqueio Ferretti", que por decisao
-    NAO e filtrado aqui.)
+     B1_MSBLQL <> '1'                -> exclui bloqueio de tela padrao Protheus
+     RTRIM(B1_ZZFORAL) = 'EM LINHA'  -> mantem SO os ativos (exclui 'FORA LINHA' e 'SUSPENSO')
+     B1_ZZMARCA <> 'BRI'             -> exclui BRINDES (marca 'BRI')
+     D_E_L_E_T_ = ' '                -> exclui registros deletados
+   (B1_ZZFORAL e TEXTO com valores: 'EM LINHA', 'FORA LINHA', 'SUSPENSO'.)
+   (Obs.: existe tambem B1_ZZMSBLQ = "Bloqueio Ferretti", que NAO e filtrado.)
    ===================================================================== */
 
 /* ---------------------------------------------------------------------
@@ -38,9 +38,9 @@ LEFT JOIN SA2010 SA2
       AND SA2.D_E_L_E_T_  = ' '
 WHERE SB1.B1_FILIAL   = '01'
   AND SB1.D_E_L_E_T_  = ' '
-  AND SB1.B1_MSBLQL  <> '1'        -- exclui bloqueio de tela padrao
-  AND SB1.B1_ZZFORAL <> 'S'        -- exclui produtos fora de linha
-  AND SB1.B1_ZZMARCA <> 'BRI'      -- exclui brindes
+  AND SB1.B1_MSBLQL  <> '1'              -- exclui bloqueio de tela padrao
+  AND RTRIM(SB1.B1_ZZFORAL) = 'EM LINHA' -- mantem so ativos (exclui fora de linha e suspenso)
+  AND SB1.B1_ZZMARCA <> 'BRI'            -- exclui brindes
 ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
 
 
@@ -64,6 +64,6 @@ LEFT JOIN SA2010 SA2
 WHERE SB1.B1_FILIAL   = '01'
   AND SB1.D_E_L_E_T_  = ' '
   AND SB1.B1_MSBLQL  <> '1'
-  AND SB1.B1_ZZFORAL <> 'S'
+  AND RTRIM(SB1.B1_ZZFORAL) = 'EM LINHA'
   AND SB1.B1_ZZMARCA <> 'BRI'
 ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
