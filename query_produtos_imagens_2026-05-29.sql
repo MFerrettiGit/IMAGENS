@@ -1,42 +1,64 @@
 /* =====================================================================
    QUERY: Produtos para o site "Banco de Imagens" (M. Ferretti)
-   Objetivo: extrair CÓDIGO, DESCRIÇÃO e EAN dos produtos (filial '01')
+   Objetivo: extrair CÓDIGO, DESCRIÇÃO, EAN, FORNECEDOR e MARCA dos
+             produtos ATIVOS e PARA VENDA (filial '01').
    Banco: SQL Server / T-SQL  |  ERP Protheus
-   Data: 2026-05-29
+   Atualizada: 2026-05-29
    ---------------------------------------------------------------------
    CAMPOS (origem na memória BankReader):
-     B1_COD    -> CÓDIGO do produto        (confirmado)
-     B1_DESC   -> DESCRIÇÃO do produto      (confirmado)
-     B1_CODBAR -> EAN / código de barras    (SUPOSIÇÃO — não estava na
-                  memória; padrão Protheus. Se vier vazio, troque por
-                  B1_EANUNB no SELECT abaixo.)
+     B1_COD     -> CÓDIGO do produto        (confirmado)
+     B1_DESC    -> DESCRIÇÃO do produto      (confirmado)
+     B1_CODBAR  -> EAN / código de barras    (SUPOSIÇÃO; se vazio, usar B1_EANUNB)
+     A2_NREDUZ  -> FORNECEDOR (nome reduzido) via B1_PROC/B1_LOJPROC -> SA2010
+     B1_ZZMARCA -> MARCA (código, ex.: 'UNI')
+
+   FILTROS DE "ATIVO E PARA VENDA":
+     B1_MSBLQL <> '1'      -> exclui produtos bloqueados/suspensos
+     B1_ZZMARCA <> 'BRI'   -> exclui BRINDES (marcados com marca 'BRI')
+     D_E_L_E_T_ = ' '      -> exclui registros deletados
    ===================================================================== */
 
 /* ---------------------------------------------------------------------
    VERSÃO 1 — SELECT simples (exportar para Excel/CSV)
    --------------------------------------------------------------------- */
 SELECT
-    RTRIM(B1_COD)            AS codigo,
-    RTRIM(B1_DESC)           AS descricao,
-    RTRIM(B1_CODBAR)         AS ean        -- assumido: código de barras EAN
-FROM SB1010
-WHERE B1_FILIAL   = '01'
-  AND D_E_L_E_T_  = ' '          -- ignora registros deletados (soft-delete)
-  AND B1_MSBLQL  <> '1'          -- ignora produtos bloqueados/inativos (opcional)
-ORDER BY B1_COD;
+    RTRIM(SB1.B1_COD)      AS codigo,
+    RTRIM(SB1.B1_DESC)     AS descricao,
+    RTRIM(SB1.B1_CODBAR)   AS ean,           -- assumido: código de barras EAN
+    RTRIM(SA2.A2_NREDUZ)   AS fornecedor,
+    RTRIM(SB1.B1_ZZMARCA)  AS marca
+FROM SB1010 SB1
+LEFT JOIN SA2010 SA2
+       ON SA2.A2_FILIAL   = ''
+      AND SA2.A2_COD      = SB1.B1_PROC
+      AND SA2.A2_LOJA     = SB1.B1_LOJPROC
+      AND SA2.D_E_L_E_T_  = ' '
+WHERE SB1.B1_FILIAL   = '01'
+  AND SB1.D_E_L_E_T_  = ' '
+  AND SB1.B1_MSBLQL  <> '1'        -- exclui bloqueados/suspensos
+  AND SB1.B1_ZZMARCA <> 'BRI'      -- exclui brindes
+ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;
 
 
 /* ---------------------------------------------------------------------
    VERSÃO 2 — Gera as linhas JÁ PRONTAS para colar no arquivo produtos.js
    Copie a coluna de resultado e cole entre os [ ] da const PRODUTOS.
-   (escapa aspas duplas na descrição para não quebrar o JavaScript)
+   (escapa aspas duplas para não quebrar o JavaScript)
    --------------------------------------------------------------------- */
 SELECT
-    '  { codigo: "'   + RTRIM(B1_COD) +
-    '", descricao: "' + REPLACE(RTRIM(B1_DESC), '"', '') +
-    '", ean: "'       + RTRIM(B1_CODBAR) + '" },'   AS linha_js
-FROM SB1010
-WHERE B1_FILIAL   = '01'
-  AND D_E_L_E_T_  = ' '
-  AND B1_MSBLQL  <> '1'
-ORDER BY B1_COD;
+    '  { codigo: "'    + RTRIM(SB1.B1_COD) +
+    '", descricao: "'  + REPLACE(RTRIM(SB1.B1_DESC), '"', '') +
+    '", ean: "'        + RTRIM(SB1.B1_CODBAR) +
+    '", fornecedor: "' + REPLACE(RTRIM(ISNULL(SA2.A2_NREDUZ, '')), '"', '') +
+    '", marca: "'      + REPLACE(RTRIM(SB1.B1_ZZMARCA), '"', '') + '" },'  AS linha_js
+FROM SB1010 SB1
+LEFT JOIN SA2010 SA2
+       ON SA2.A2_FILIAL   = ''
+      AND SA2.A2_COD      = SB1.B1_PROC
+      AND SA2.A2_LOJA     = SB1.B1_LOJPROC
+      AND SA2.D_E_L_E_T_  = ' '
+WHERE SB1.B1_FILIAL   = '01'
+  AND SB1.D_E_L_E_T_  = ' '
+  AND SB1.B1_MSBLQL  <> '1'
+  AND SB1.B1_ZZMARCA <> 'BRI'
+ORDER BY SA2.A2_NREDUZ, SB1.B1_ZZMARCA, SB1.B1_COD;

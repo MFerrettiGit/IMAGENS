@@ -37,17 +37,25 @@
   }
   .titulo h1{font-size:22px;font-weight:700;line-height:1.1}
   .titulo p{font-size:13px;opacity:.85;margin-top:2px}
-  .busca-wrap{max-width:1200px;margin:18px auto 0;position:relative}
+  .controles{max-width:1200px;margin:18px auto 0;display:flex;flex-wrap:wrap;gap:10px}
+  .busca-wrap{position:relative;flex:1 1 260px}
   #busca{
-    width:100%;padding:14px 46px 14px 16px;border:none;border-radius:10px;
+    width:100%;padding:13px 44px 13px 16px;border:none;border-radius:10px;
     font-size:16px;outline:none;box-shadow:0 2px 8px rgba(0,0,0,.12);
   }
   .busca-wrap svg{
-    position:absolute;right:16px;top:50%;transform:translateY(-50%);
+    position:absolute;right:14px;top:50%;transform:translateY(-50%);
     width:20px;height:20px;fill:var(--suave);pointer-events:none;
   }
+  .filtro{
+    flex:0 1 220px;padding:13px 14px;border:none;border-radius:10px;
+    font-size:15px;outline:none;box-shadow:0 2px 8px rgba(0,0,0,.12);
+    background:#fff;color:var(--texto);cursor:pointer;
+  }
   main{max-width:1200px;margin:0 auto;padding:22px 20px 60px}
-  .contador{font-size:13px;color:var(--suave);margin-bottom:14px}
+  .barra-info{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .contador{font-size:13px;color:var(--suave)}
+  .limpar{font-size:13px;color:var(--azul-claro);background:none;border:none;cursor:pointer;text-decoration:underline}
   .grid{
     display:grid;gap:18px;
     grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
@@ -64,10 +72,15 @@
   }
   .img-box img{width:100%;height:100%;object-fit:contain}
   .sem-img{color:var(--suave);font-size:13px;text-align:center;padding:10px}
-  .info{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .marca-badge{
+    position:absolute;top:8px;left:8px;background:var(--azul);color:#fff;
+    font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.3px;
+  }
+  .info{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
   .cod{font-size:12px;font-weight:700;color:var(--azul-claro);letter-spacing:.3px}
   .desc{font-size:14px;font-weight:600;line-height:1.25;flex:1}
   .ean{font-size:12px;color:var(--suave);font-variant-numeric:tabular-nums}
+  .forn{font-size:11px;color:var(--suave);text-transform:uppercase;letter-spacing:.2px}
   .baixar{
     margin:0 14px 14px;padding:10px;border:none;border-radius:9px;cursor:pointer;
     background:var(--azul);color:#fff;font-size:14px;font-weight:600;
@@ -102,14 +115,21 @@
       <p>M. Ferretti — fotos de produtos para a equipe de vendas</p>
     </div>
   </div>
-  <div class="busca-wrap">
-    <input id="busca" type="search" placeholder="Pesquisar por código, descrição ou EAN..." autocomplete="off">
-    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+  <div class="controles">
+    <div class="busca-wrap">
+      <input id="busca" type="search" placeholder="Pesquisar por código, descrição ou EAN..." autocomplete="off">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+    </div>
+    <select id="filtroFornecedor" class="filtro"><option value="">Todos os fornecedores</option></select>
+    <select id="filtroMarca" class="filtro"><option value="">Todas as marcas</option></select>
   </div>
 </header>
 
 <main>
-  <div class="contador" id="contador"></div>
+  <div class="barra-info">
+    <span class="contador" id="contador"></span>
+    <button class="limpar" id="limpar" style="display:none">Limpar filtros</button>
+  </div>
   <div class="grid" id="grid"></div>
   <div class="vazio" id="vazio" style="display:none">Nenhum produto encontrado.</div>
 </main>
@@ -136,6 +156,9 @@
   var vazio = document.getElementById("vazio");
   var contador = document.getElementById("contador");
   var busca = document.getElementById("busca");
+  var selForn = document.getElementById("filtroFornecedor");
+  var selMarca = document.getElementById("filtroMarca");
+  var btnLimpar = document.getElementById("limpar");
   var lightbox = document.getElementById("lightbox");
   var lbImg = document.getElementById("lb-img");
   var lbBaixar = document.getElementById("lb-baixar");
@@ -153,8 +176,13 @@
     var i = 0;
     function tenta(){
       if(i >= EXTENSOES.length){
-        // Nenhuma imagem encontrada
-        imgBox.innerHTML = '<span class="sem-img">Sem imagem<br>cadastrada</span>';
+        imgBox.querySelector(".sem-img") || (function(){
+          var s = document.createElement("span");
+          s.className = "sem-img";
+          s.innerHTML = "Sem imagem<br>cadastrada";
+          img.style.display = "none";
+          imgBox.appendChild(s);
+        })();
         imgBox.style.cursor = "default";
         botao.classList.add("disabled");
         botao.textContent = "Sem imagem";
@@ -177,12 +205,14 @@
   function criaCard(p){
     var card = document.createElement("div");
     card.className = "card";
+    var marca = p.marca ? '<span class="marca-badge">' + p.marca + '</span>' : '';
     card.innerHTML =
-      '<div class="img-box"><img alt="' + (p.descricao||"") + '"></div>' +
+      '<div class="img-box">' + marca + '<img alt="' + (p.descricao||"") + '"></div>' +
       '<div class="info">' +
         '<span class="cod">COD ' + (p.codigo||"") + '</span>' +
         '<span class="desc">' + (p.descricao||"") + '</span>' +
         '<span class="ean">EAN: ' + (p.ean || "—") + '</span>' +
+        '<span class="forn">' + (p.fornecedor || "") + '</span>' +
       '</div>' +
       '<a class="baixar" href="#"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Baixar imagem</a>';
     grid.appendChild(card);
@@ -204,27 +234,59 @@
 
   var lista = (typeof PRODUTOS !== "undefined") ? PRODUTOS.slice() : [];
 
-  function render(filtro){
+  // Preenche os selects de fornecedor e marca a partir dos dados (ordenado)
+  function preencheSelect(sel, valores){
+    valores.sort(function(a,b){ return a.localeCompare(b, "pt-BR"); });
+    valores.forEach(function(v){
+      var o = document.createElement("option");
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+  (function montaFiltros(){
+    var forns = {}, marcas = {};
+    lista.forEach(function(p){
+      if(p.fornecedor) forns[p.fornecedor] = true;
+      if(p.marca) marcas[p.marca] = true;
+    });
+    preencheSelect(selForn, Object.keys(forns));
+    preencheSelect(selMarca, Object.keys(marcas));
+  })();
+
+  function render(){
     grid.innerHTML = "";
-    var f = normaliza(filtro);
+    var f = normaliza(busca.value);
+    var fForn = selForn.value;
+    var fMarca = selMarca.value;
     var vis = lista.filter(function(p){
+      if(fForn && p.fornecedor !== fForn) return false;
+      if(fMarca && p.marca !== fMarca) return false;
       if(!f) return true;
       return normaliza(p.codigo).indexOf(f) > -1 ||
              normaliza(p.descricao).indexOf(f) > -1 ||
-             normaliza(p.ean).indexOf(f) > -1;
+             normaliza(p.ean).indexOf(f) > -1 ||
+             normaliza(p.fornecedor).indexOf(f) > -1 ||
+             normaliza(p.marca).indexOf(f) > -1;
     });
     vis.forEach(criaCard);
     vazio.style.display = vis.length ? "none" : "block";
     contador.textContent = vis.length + " de " + lista.length + " produto(s)";
+    btnLimpar.style.display = (f || fForn || fMarca) ? "inline" : "none";
   }
 
   var t;
   busca.addEventListener("input", function(){
     clearTimeout(t);
-    t = setTimeout(function(){ render(busca.value); }, 120);
+    t = setTimeout(render, 120);
+  });
+  selForn.addEventListener("change", render);
+  selMarca.addEventListener("change", render);
+  btnLimpar.addEventListener("click", function(){
+    busca.value = ""; selForn.value = ""; selMarca.value = "";
+    render();
   });
 
-  render("");
+  render();
 </script>
 </body>
 </html>
