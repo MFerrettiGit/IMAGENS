@@ -78,6 +78,17 @@
   .desc{font-size:14px;font-weight:600;line-height:1.25;flex:1}
   .ean{font-size:12px;color:var(--suave);font-variant-numeric:tabular-nums}
   .forn{font-size:11px;color:var(--suave);text-transform:uppercase;letter-spacing:.2px}
+  /* Separador de marca (logo uma vez por grupo) */
+  .marca-sep{
+    grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:#fff;border:1px solid var(--borda);border-radius:12px;padding:10px 16px;
+  }
+  .marca-sep-in{display:flex;align-items:center;gap:12px;min-width:0}
+  .marca-logo{height:46px;width:auto;max-width:210px;object-fit:contain;display:block}
+  .marca-cod{font-size:12px;font-weight:700;color:var(--suave);letter-spacing:.5px;background:var(--cinza);padding:3px 8px;border-radius:6px;flex:0 0 auto}
+  .marca-dl{color:var(--suave);opacity:.5;display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-size:12px;flex:0 0 auto;transition:opacity .12s,color .12s}
+  .marca-dl:hover{opacity:1;color:var(--azul)}
+  .marca-dl svg{width:16px;height:16px;fill:currentColor}
   .baixar{
     margin:0 14px 8px;padding:10px;border:none;border-radius:9px;cursor:pointer;
     background:var(--azul);color:#fff;font-size:14px;font-weight:600;
@@ -399,6 +410,33 @@
   document.getElementById("btnXlsx").addEventListener("click", exportarXLSX);
   document.getElementById("btnPdf").addEventListener("click", exportarPDF);
 
+  // ===== Mapa marca → arquivo de logo (pasta marcas/) =====
+  var MARCA_LOGO = {
+    "AER":  "marcas/aeroflex.png",
+    "BAB":  "marcas/baruel.png",
+    "BEL":  "marcas/bellacoton.png",
+    "BRI":  "marcas/brics.png",
+    "CLO":  "marcas/cloy.png",
+    "CRE":  "marcas/bellacoton.png",  // mesma logo BEL
+    "DEN":  "marcas/dentics.png",
+    "FAR":  "marcas/farnese.png",
+    "GAL":  "marcas/galaxy.png",
+    "KIN":  "marcas/king.png",
+    "LEI":  "marcas/leite-de-rosas.png",
+    "MUL":  "marcas/multionic.png",
+    "NAT":  "marcas/nathan.png",
+    "PRU":  "marcas/prudence.png",
+    "SEM":  "marcas/semorin.png",
+    "SHO":  "marcas/superfine.png",
+    "SUS":  "marcas/sussex.png",
+    "TEC":  "marcas/techluz.png",
+    "TEN":  "marcas/baruel.png",
+    "TENW": "marcas/baruel.png",
+    "UNI":  "marcas/multionic.png",
+    "WHI":  "marcas/orbi.png",
+    "YAM":  "marcas/yama.png"
+  };
+
   var lista = (typeof PRODUTOS !== "undefined") ? PRODUTOS.slice() : [];
 
   // Preenche os selects de fornecedor e marca a partir dos dados (ordenado)
@@ -430,7 +468,29 @@
              normaliza(p.marca).indexOf(f) > -1;
     });
     filtrados = vis;
-    vis.forEach(criaCard);
+    var marcaAtual = null;
+    vis.forEach(function(p){
+      // Insere separador com logo uma única vez por grupo de marca
+      if(p.marca !== marcaAtual){
+        marcaAtual = p.marca;
+        var logoSrc = MARCA_LOGO[p.marca];
+        var sep = document.createElement("div");
+        sep.className = "marca-sep";
+        sep.innerHTML =
+          '<div class="marca-sep-in">'
+          + (logoSrc
+              ? '<img class="marca-logo" src="'+logoSrc+'" alt="'+p.marca+'">'
+              : '<span class="marca-cod">'+p.marca+'</span>')
+          + '</div>'
+          + (logoSrc
+              ? '<a class="marca-dl" href="'+logoSrc+'" download title="Baixar logo '+p.marca+'">'
+                + '<svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>'
+                + 'logo</a>'
+              : '');
+        grid.appendChild(sep);
+      }
+      criaCard(p);
+    });
     vazio.style.display = vis.length ? "none" : "block";
     contador.textContent = vis.length + " de " + lista.length + " produto(s)";
     btnLimpar.style.display = (f || fMarca) ? "inline" : "none";
