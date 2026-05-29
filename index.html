@@ -125,10 +125,24 @@
     body>header, body>main, body>footer, #dadosModal, #lightbox{display:none !important}
     #printArea{display:block !important}
     @page{size:A4 portrait;margin:8mm}
-    #printArea .ph{text-align:center;font-size:9pt;color:#333;margin-bottom:4mm}
-    #printArea .dc-card{box-shadow:none;border:1px solid #8a90a6;border-radius:8px;margin:0 0 5mm 0;break-inside:avoid;page-break-inside:avoid;min-height:128mm;display:flex;flex-direction:column}
+    /* cabecalho enxuto no topo da 1a pagina (nao gera pagina propria) */
+    #printArea .ph{text-align:center;font-size:8pt;color:#333;margin:0 0 3mm 0;font-weight:600}
+    /* 2 cadastros por folha A4: cada card ~meia folha (compacto) */
+    #printArea .dc-card{
+      box-shadow:none;border:1px solid #8a90a6;border-radius:8px;margin:0 0 5mm 0;
+      break-inside:avoid;page-break-inside:avoid;min-height:127mm;
+      display:flex;flex-direction:column;overflow:hidden;
+    }
     #printArea .dc-card:nth-of-type(2n){page-break-after:always;margin-bottom:0}
-    #printArea .dc-top,#printArea .dc-marca{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    #printArea .dc-top{padding:5px 10px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    #printArea .dc-top .dc-cod{font-size:7pt}
+    #printArea .dc-top .dc-desc{font-size:11pt;line-height:1.15;margin-top:1px}
+    #printArea .dc-top .dc-marca{font-size:7pt;margin-top:3px;padding:1px 7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    #printArea .dc-bloco{padding:3px 10px}
+    #printArea .dc-bloco h3{font-size:6.8pt;margin-bottom:2px;letter-spacing:.5px}
+    #printArea .dc-grid{gap:1px 12px}
+    #printArea .dc-campo .dc-rotulo{font-size:6.4pt;letter-spacing:.2px}
+    #printArea .dc-campo .dc-valor{font-size:8.6pt;line-height:1.15}
   }
   /* Lightbox */
   #lightbox{
