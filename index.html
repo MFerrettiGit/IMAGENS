@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Banco de Imagens — M. Ferretti</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
   :root{
     --azul:#0d3b66;
@@ -114,6 +115,21 @@
   .dc-campo .dc-valor{font-size:.95rem;font-weight:600;line-height:1.2;word-break:break-word}
   .dc-campo .dc-valor.vazio{color:#aab;font-weight:400}
   .dc-indisp{padding:40px 20px;text-align:center;color:var(--suave)}
+  /* Botoes de exportacao */
+  .acoes-dir{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .export-btn{padding:8px 12px;border:none;border-radius:8px;background:var(--azul);color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+  .export-btn:hover{background:var(--azul-claro)}
+  /* Area de impressao (PDF) — escondida na tela */
+  #printArea{display:none}
+  @media print{
+    body>header, body>main, body>footer, #dadosModal, #lightbox{display:none !important}
+    #printArea{display:block !important}
+    @page{size:A4 portrait;margin:8mm}
+    #printArea .ph{text-align:center;font-size:9pt;color:#333;margin-bottom:4mm}
+    #printArea .dc-card{box-shadow:none;border:1px solid #8a90a6;border-radius:8px;margin:0 0 5mm 0;break-inside:avoid;page-break-inside:avoid;min-height:128mm;display:flex;flex-direction:column}
+    #printArea .dc-card:nth-of-type(2n){page-break-after:always;margin-bottom:0}
+    #printArea .dc-top,#printArea .dc-marca{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
   /* Lightbox */
   #lightbox{
     position:fixed;inset:0;background:rgba(10,20,30,.9);display:none;
@@ -150,11 +166,17 @@
 <main>
   <div class="barra-info">
     <span class="contador" id="contador"></span>
-    <button class="limpar" id="limpar" style="display:none">Limpar filtros</button>
+    <div class="acoes-dir">
+      <button class="export-btn" id="btnPdf" type="button">📄 Exportar PDF</button>
+      <button class="export-btn" id="btnXlsx" type="button">📊 Exportar XLSX</button>
+      <button class="limpar" id="limpar" style="display:none">Limpar filtros</button>
+    </div>
   </div>
   <div class="grid" id="grid"></div>
   <div class="vazio" id="vazio" style="display:none">Nenhum produto encontrado.</div>
 </main>
+
+<div id="printArea"></div>
 
 <div id="dadosModal">
   <div class="dc-wrap">
@@ -314,6 +336,54 @@
   dadosModal.addEventListener("click", function(e){ if(e.target === dadosModal) fechaDados(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") fechaDados(); });
 
+  // ===== Exportacao PDF / XLSX do conjunto FILTRADO =====
+  var filtrados = [];
+  var printArea = document.getElementById("printArea");
+  function cadDe(p){ return CAD[p.codigo] || { CODIGO:p.codigo, DESCRICAO:p.descricao, MARCA:p.marca, FORNECEDOR:p.fornecedor, EAN:p.ean }; }
+  function ctxStr(){
+    var c=[]; if(selMarca.value) c.push('Marca: '+selMarca.value);
+    if(busca.value.trim()) c.push('Busca: "'+busca.value.trim()+'"');
+    return c.length ? '  ·  '+c.join('  ·  ') : '';
+  }
+  var COLS = [
+    ['CÓDIGO','CODIGO'],['DESCRIÇÃO','DESCRICAO'],['MARCA','MARCA'],['FORNECEDOR','FORNECEDOR'],
+    ['REFERÊNCIA','REFERENCIA'],['EAN','EAN'],['DUN','DUN'],['QTDE/CAIXA','CAIXA'],
+    ['LOTE MÍNIMO','LOTE_MINIMO'],['VALIDADE','VALIDADE'],
+    ['NCM','NCM'],['CEST','CEST'],['CFOP','CFOP'],['CST','CST'],
+    ['IVA ENTRADA','IVA_ENTRADA'],['IVA SAÍDA','IVA_SAIDA'],['ICMS','ICMS'],['IPI','IPI'],
+    ['ORIGEM','ORIGEM'],['PIS/COFINS','PIS_COFINS'],
+    ['PESO BRUTO ITEM','ITEM_PESO_BRUTO'],['PESO LÍQ ITEM','ITEM_PESO_LIQ'],
+    ['A ITEM (cm)','ITEM_A'],['C ITEM (cm)','ITEM_C'],['L ITEM (cm)','ITEM_L'],
+    ['PESO BRUTO CAIXA','CAIXA_PESO_BRUTO'],['PESO LÍQ CAIXA','CAIXA_PESO_LIQ'],
+    ['A CAIXA (cm)','CAIXA_A'],['C CAIXA (cm)','CAIXA_C'],['L CAIXA (cm)','CAIXA_L'],
+    ['LASTRO','PALETE_LASTRO'],['ALT. PALETE','PALETE_ALT'],['CX/PALETE','_PALETE_TOTAL']
+  ];
+  function exportarXLSX(){
+    if(!filtrados.length){ alert('Não há produtos filtrados para exportar.'); return; }
+    if(typeof XLSX==='undefined'){ alert('A biblioteca de exportação não carregou (precisa de internet).'); return; }
+    var aoa = [ COLS.map(function(c){ return c[0]; }) ];
+    filtrados.forEach(function(prod){
+      var p = cadDe(prod);
+      aoa.push(COLS.map(function(c){
+        if(c[1]==='_PALETE_TOTAL'){ return (p.PALETE_LASTRO&&p.PALETE_ALT)?(p.PALETE_LASTRO*p.PALETE_ALT):''; }
+        var val=p[c[1]]; return (val===null||val===undefined)?'':val;
+      }));
+    });
+    var ws = XLSX.utils.aoa_to_sheet(aoa);
+    ws['!cols'] = COLS.map(function(c){ return {wch: Math.max(10, c[0].length+2)}; });
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Cadastro');
+    XLSX.writeFile(wb, 'cadastro-produtos-'+new Date().toISOString().slice(0,10)+'.xlsx');
+  }
+  function exportarPDF(){
+    if(!filtrados.length){ alert('Não há produtos filtrados para exportar.'); return; }
+    printArea.innerHTML = '<p class="ph">Dados cadastrais — '+filtrados.length+' produto(s)'+ctxStr()+'  ·  '+new Date().toLocaleDateString('pt-BR')+'</p>'
+      + filtrados.map(function(prod){ return dcCard(cadDe(prod)); }).join('');
+    window.print();
+  }
+  document.getElementById("btnXlsx").addEventListener("click", exportarXLSX);
+  document.getElementById("btnPdf").addEventListener("click", exportarPDF);
+
   var lista = (typeof PRODUTOS !== "undefined") ? PRODUTOS.slice() : [];
 
   // Preenche os selects de fornecedor e marca a partir dos dados (ordenado)
@@ -344,6 +414,7 @@
              normaliza(p.fornecedor).indexOf(f) > -1 ||
              normaliza(p.marca).indexOf(f) > -1;
     });
+    filtrados = vis;
     vis.forEach(criaCard);
     vazio.style.display = vis.length ? "none" : "block";
     contador.textContent = vis.length + " de " + lista.length + " produto(s)";
