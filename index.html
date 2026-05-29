@@ -78,7 +78,7 @@
   .ean{font-size:12px;color:var(--suave);font-variant-numeric:tabular-nums}
   .forn{font-size:11px;color:var(--suave);text-transform:uppercase;letter-spacing:.2px}
   .baixar{
-    margin:0 14px 14px;padding:10px;border:none;border-radius:9px;cursor:pointer;
+    margin:0 14px 8px;padding:10px;border:none;border-radius:9px;cursor:pointer;
     background:var(--azul);color:#fff;font-size:14px;font-weight:600;
     display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
     transition:background .12s ease;
@@ -87,6 +87,33 @@
   .baixar.disabled{background:#c7ccd2;cursor:not-allowed;pointer-events:none}
   .baixar svg{width:16px;height:16px;fill:#fff}
   .vazio{text-align:center;color:var(--suave);padding:60px 20px;font-size:15px}
+  /* Botao dados cadastrais */
+  .dados-btn{
+    margin:0 14px 14px;padding:9px;border:1px solid var(--azul);border-radius:9px;cursor:pointer;
+    background:#fff;color:var(--azul);font-size:13px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;gap:7px;transition:background .12s ease;
+  }
+  .dados-btn:hover{background:#eef3f9}
+  .dados-btn svg{width:15px;height:15px;fill:var(--azul)}
+  /* Modal dados cadastrais (layout igual ao site de cadastro) */
+  #dadosModal{position:fixed;inset:0;background:rgba(10,20,30,.55);display:none;z-index:60;overflow:auto;padding:24px 14px}
+  #dadosModal.open{display:block}
+  .dc-wrap{max-width:760px;margin:0 auto}
+  .dc-close{position:sticky;top:0;display:flex;justify-content:flex-end;margin-bottom:8px}
+  .dc-close button{background:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);color:var(--texto)}
+  .dc-card{background:#fff;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,.25);overflow:hidden;border:1px solid var(--borda)}
+  .dc-top{background:var(--azul);color:#fff;padding:12px 16px}
+  .dc-top .dc-cod{font-size:.76rem;opacity:.85;letter-spacing:.5px}
+  .dc-top .dc-desc{font-size:1.1rem;font-weight:700;line-height:1.2;margin-top:2px}
+  .dc-top .dc-marca{display:inline-block;margin-top:6px;background:rgba(255,255,255,.2);padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:600}
+  .dc-bloco{padding:9px 16px;border-top:1px solid var(--borda)}
+  .dc-bloco h3{font-size:.7rem;text-transform:uppercase;letter-spacing:.6px;color:var(--azul);margin-bottom:6px;font-weight:700}
+  .dc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 14px}
+  .dc-grid.full{grid-template-columns:1fr}
+  .dc-campo .dc-rotulo{font-size:.68rem;color:var(--suave);text-transform:uppercase;letter-spacing:.2px}
+  .dc-campo .dc-valor{font-size:.95rem;font-weight:600;line-height:1.2;word-break:break-word}
+  .dc-campo .dc-valor.vazio{color:#aab;font-weight:400}
+  .dc-indisp{padding:40px 20px;text-align:center;color:var(--suave)}
   /* Lightbox */
   #lightbox{
     position:fixed;inset:0;background:rgba(10,20,30,.9);display:none;
@@ -129,6 +156,13 @@
   <div class="vazio" id="vazio" style="display:none">Nenhum produto encontrado.</div>
 </main>
 
+<div id="dadosModal">
+  <div class="dc-wrap">
+    <div class="dc-close"><button type="button" id="dcFechar" aria-label="Fechar">&times;</button></div>
+    <div id="dcConteudo"></div>
+  </div>
+</div>
+
 <div id="lightbox">
   <img id="lb-img" src="" alt="">
   <div class="lb-bar">
@@ -142,6 +176,7 @@
 <footer>M. Ferretti · Banco de Imagens de Produtos</footer>
 
 <script src="produtos.js"></script>
+<script src="cadastro.js"></script>
 <script>
   // Extensões tentadas para cada imagem (a foto é nomeada pelo CÓDIGO do produto)
   var EXTENSOES = ["jpg","jpeg","png","webp"];
@@ -208,8 +243,10 @@
         '<span class="ean">EAN: ' + (p.ean || "—") + '</span>' +
         '<span class="forn">' + (p.fornecedor || "") + '</span>' +
       '</div>' +
-      '<a class="baixar" href="#"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Baixar imagem</a>';
+      '<a class="baixar" href="#"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Baixar imagem</a>' +
+      '<button class="dados-btn" type="button"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Dados cadastrais</button>';
     grid.appendChild(card);
+    card.querySelector(".dados-btn").addEventListener("click", function(){ abreDados(p.codigo); });
     resolveImagem(card, p.codigo);
     return card;
   }
@@ -225,6 +262,57 @@
     lightbox.style.display = "none";
     lbImg.src = "";
   });
+
+  // ===== Dados cadastrais (modal com layout igual ao site de cadastro) =====
+  var CAD = {};
+  (window.CADASTRO || []).forEach(function(p){ if(p && p.CODIGO) CAD[p.CODIGO] = p; });
+  var dadosModal = document.getElementById("dadosModal");
+  var dcConteudo = document.getElementById("dcConteudo");
+
+  function dcV(x){ if(x===null||x===undefined||x==='') return '<span class="dc-valor vazio">—</span>'; return '<span class="dc-valor">'+String(x)+'</span>'; }
+  function dcVs(x,suf){ if(x===null||x===undefined||x==='') return '<span class="dc-valor vazio">—</span>'; return '<span class="dc-valor">'+String(x)+(suf?' '+suf:'')+'</span>'; }
+  function dcCampo(r,html){ return '<div class="dc-campo"><div class="dc-rotulo">'+r+'</div>'+html+'</div>'; }
+  function dcPalet(p){ return (p.PALETE_LASTRO&&p.PALETE_ALT)?(p.PALETE_LASTRO+' × '+p.PALETE_ALT+' = '+(p.PALETE_LASTRO*p.PALETE_ALT)+' cx/palete'):(p.PALETE_LASTRO||p.PALETE_ALT||''); }
+  function dcCard(p){
+    return '<div class="dc-card">'
+      + '<div class="dc-top"><div class="dc-cod">CÓD. '+(p.CODIGO||'—')+'</div>'
+      +   '<div class="dc-desc">'+(p.DESCRICAO||'Sem descrição')+'</div>'
+      +   (p.MARCA?'<span class="dc-marca">'+p.MARCA+'</span>':'')+'</div>'
+      + '<div class="dc-bloco"><h3>Identificação</h3><div class="dc-grid">'
+      +   dcCampo('Fornecedor',dcV(p.FORNECEDOR))+dcCampo('Marca',dcV(p.MARCA))
+      +   dcCampo('Código',dcV(p.CODIGO))+dcCampo('Referência',dcV(p.REFERENCIA))
+      + '</div><div class="dc-grid full" style="margin-top:7px">'+dcCampo('Descrição',dcV(p.DESCRICAO))+'</div></div>'
+      + '<div class="dc-bloco"><h3>Códigos de barras</h3><div class="dc-grid">'
+      +   dcCampo('EAN (unidade)',dcV(p.EAN))+dcCampo('DUN (caixa)',dcV(p.DUN))+'</div></div>'
+      + '<div class="dc-bloco"><h3>Embalagem</h3><div class="dc-grid">'
+      +   dcCampo('Qtde por caixa',dcV(p.CAIXA))+dcCampo('Lote mínimo',dcV(p.LOTE_MINIMO))
+      +   dcCampo('Validade',dcV(p.VALIDADE))+dcCampo('Paletização',dcV(dcPalet(p)))+'</div></div>'
+      + '<div class="dc-bloco"><h3>Fiscal</h3><div class="dc-grid">'
+      +   dcCampo('NCM',dcV(p.NCM))+dcCampo('CEST',dcV(p.CEST))+dcCampo('CFOP',dcV(p.CFOP))+dcCampo('CST',dcV(p.CST))
+      +   dcCampo('IVA entrada',dcV(p.IVA_ENTRADA))+dcCampo('IVA saída',dcV(p.IVA_SAIDA))
+      +   dcCampo('ICMS',dcV(p.ICMS))+dcCampo('IPI',dcV(p.IPI))+dcCampo('Origem',dcV(p.ORIGEM))
+      + '</div><div class="dc-grid full" style="margin-top:7px">'+dcCampo('PIS/COFINS',dcV(p.PIS_COFINS))+'</div></div>'
+      + '<div class="dc-bloco"><h3>Logística — Item</h3><div class="dc-grid">'
+      +   dcCampo('Peso bruto',dcVs(p.ITEM_PESO_BRUTO,p.ITEM_UN_PESO||'kg'))+dcCampo('Peso líquido',dcVs(p.ITEM_PESO_LIQ,p.ITEM_UN_PESO||'kg'))
+      +   dcCampo('Altura',dcVs(p.ITEM_A,p.ITEM_UN_DIM||'cm'))+dcCampo('Comprimento',dcVs(p.ITEM_C,p.ITEM_UN_DIM||'cm'))
+      +   dcCampo('Largura',dcVs(p.ITEM_L,p.ITEM_UN_DIM||'cm'))+'</div></div>'
+      + '<div class="dc-bloco"><h3>Logística — Caixa</h3><div class="dc-grid">'
+      +   dcCampo('Peso bruto',dcVs(p.CAIXA_PESO_BRUTO,p.CAIXA_UN_PESO||'kg'))+dcCampo('Peso líquido',dcVs(p.CAIXA_PESO_LIQ,p.CAIXA_UN_PESO||'kg'))
+      +   dcCampo('Altura',dcVs(p.CAIXA_A,p.CAIXA_UN_DIM||'cm'))+dcCampo('Comprimento',dcVs(p.CAIXA_C,p.CAIXA_UN_DIM||'cm'))
+      +   dcCampo('Largura',dcVs(p.CAIXA_L,p.CAIXA_UN_DIM||'cm'))+'</div></div>'
+      + '</div>';
+  }
+  function abreDados(codigo){
+    var p = CAD[codigo];
+    if(p){ dcConteudo.innerHTML = dcCard(p); }
+    else { dcConteudo.innerHTML = '<div class="dc-card"><div class="dc-top"><div class="dc-cod">CÓD. '+codigo+'</div><div class="dc-desc">Dados cadastrais indisponíveis</div></div><div class="dc-indisp">Este produto ainda não está na base de dados cadastrais.</div></div>'; }
+    dadosModal.classList.add("open");
+    dadosModal.scrollTop = 0;
+  }
+  function fechaDados(){ dadosModal.classList.remove("open"); dcConteudo.innerHTML = ""; }
+  document.getElementById("dcFechar").addEventListener("click", fechaDados);
+  dadosModal.addEventListener("click", function(e){ if(e.target === dadosModal) fechaDados(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") fechaDados(); });
 
   var lista = (typeof PRODUTOS !== "undefined") ? PRODUTOS.slice() : [];
 
