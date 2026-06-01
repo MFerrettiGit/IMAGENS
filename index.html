@@ -177,10 +177,10 @@
     @page{size:A4 portrait;margin:6mm}
     /* cabecalho enxuto no topo da 1a pagina (nao gera pagina propria) */
     #printArea .ph{text-align:center;font-size:7.5pt;color:#333;margin:0 0 2mm 0;font-weight:600}
-    /* 2 por folha: ~meia folha cada, SEM cortar conteudo (min-height, sem overflow) */
+    /* 2 por folha: cada cadastro ocupa ~40% da folha (altura fixa) */
     #printArea .dc-card{
-      box-shadow:none;border:1px solid #8a90a6;border-radius:7px;margin:0 0 4mm 0;
-      min-height:128mm;
+      box-shadow:none;border:1px solid #8a90a6;border-radius:7px;margin:0 0 6mm 0;
+      height:119mm;overflow:hidden;
       break-inside:avoid;page-break-inside:avoid;display:flex;flex-direction:column;
     }
     #printArea .dc-card:nth-of-type(2n){page-break-after:always;margin-bottom:0}
