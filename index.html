@@ -305,11 +305,15 @@
 
 <script src="produtos.js"></script>
 <script src="cadastro.js"></script>
+<script src="imagens-manifest.js"></script>
 <script src="dados-version.js"></script>
 <script>
   // Extensões tentadas para cada imagem (a foto é nomeada pelo CÓDIGO do produto)
   var EXTENSOES = ["jpg","jpeg","png","webp"];
   var PASTA = "imagens/";
+  // Manifesto das imagens existentes (codigo -> extensao), gerado no publish.
+  var DISP = (typeof IMAGENS_DISP !== "undefined" && IMAGENS_DISP) ? IMAGENS_DISP : null;
+  function extDe(codigo){ return (DISP && DISP[codigo]) ? DISP[codigo] : "png"; }
 
   var grid = document.getElementById("grid");
   var vazio = document.getElementById("vazio");
@@ -333,6 +337,15 @@
     var imgBox = card.querySelector(".img-box");
     var img = imgBox.querySelector("img");
     var botao = card.querySelector(".baixar");
+    // Se o manifesto sabe a extensao, usa direto (sem testar todas).
+    if(DISP && DISP[codigo]){
+      var u = PASTA + codigo + "." + DISP[codigo];
+      img.src = u;
+      botao.href = u;
+      botao.setAttribute("download", codigo + "." + DISP[codigo]);
+      imgBox.onclick = function(){ abreLightbox(u, codigo + "." + DISP[codigo]); };
+      return;
+    }
     var i = 0;
     function tenta(){
       if(i >= EXTENSOES.length){
@@ -675,7 +688,7 @@
         var c = cadDe(prod);
         html += '<div class="ap-card" style="border-color:'+cor+'">'
           + '<div class="ap-bar" style="background:'+cor+'"></div>'
-          + '<div class="ap-img"><img src="'+PASTA+prod.codigo+'.png" alt="" '
+          + '<div class="ap-img"><img src="'+PASTA+prod.codigo+'.'+extDe(prod.codigo)+'" alt="" '
           +   'onerror="this.style.display=\'none\';this.parentNode.classList.add(\'sem\')"></div>'
           + '<div class="ap-desc">'+(prod.descricao||'')+'</div>'
           + '<div class="ap-cod" style="color:'+cor+'">'+(prod.codigo||'')+'</div>'
@@ -758,6 +771,8 @@
   };
 
   var lista = (typeof PRODUTOS !== "undefined") ? PRODUTOS.slice() : [];
+  // So mostra produtos que tem imagem cadastrada (presente no manifesto).
+  if(DISP){ lista = lista.filter(function(p){ return Object.prototype.hasOwnProperty.call(DISP, p.codigo); }); }
 
   // Preenche os selects de fornecedor e marca a partir dos dados (ordenado)
   function preencheSelect(sel, valores){
