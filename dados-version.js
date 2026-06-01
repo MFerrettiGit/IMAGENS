@@ -1,0 +1,1 @@
+﻿window.DADOS_ATUALIZADOS = "29/05/2026";

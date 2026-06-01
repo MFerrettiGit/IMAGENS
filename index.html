@@ -81,12 +81,37 @@
   .meta{display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;font-size:11.5px;color:var(--suave);font-variant-numeric:tabular-nums}
   .meta b{color:var(--texto);font-weight:700}
   .meta span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  /* caixa de selecao do produto */
-  .sel-wrap{position:absolute;top:8px;right:8px;background:#fff;border-radius:6px;padding:3px;line-height:0;box-shadow:0 1px 5px rgba(0,0,0,.22);cursor:pointer;z-index:2}
-  .sel-prod{width:19px;height:19px;cursor:pointer;accent-color:var(--azul);margin:0;display:block}
-  /* caixa de selecao da marca (no separador) */
-  .sel-marca-wrap{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:var(--suave);font-weight:600}
-  .sel-marca{width:18px;height:18px;cursor:pointer;accent-color:var(--azul);margin:0}
+  /* card selecionado (via lista de selecao) */
+  .card.sel{outline:3px solid var(--azul);outline-offset:-1px;box-shadow:0 6px 18px rgba(13,59,102,.22)}
+  /* botao + painel da lista de selecao */
+  .sel-wrap-btn{position:relative;flex:0 1 auto}
+  .sel-btn{cursor:pointer;white-space:nowrap}
+  .painel-sel{
+    position:absolute;top:calc(100% + 6px);right:0;width:min(380px,90vw);
+    background:#fff;border:1px solid var(--borda);border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:45;display:none;overflow:hidden;
+  }
+  .painel-sel.open{display:block}
+  .painel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:10px 12px;border-bottom:1px solid var(--borda);background:var(--cinza)}
+  .painel-head strong{font-size:13px;color:var(--texto)}
+  .painel-acts button{font-size:12px;border:none;background:var(--azul);color:#fff;border-radius:6px;padding:4px 8px;cursor:pointer;margin-left:5px}
+  .painel-acts button:hover{background:var(--azul-claro)}
+  .painel-lista{max-height:48vh;overflow:auto;padding:4px 0}
+  .item-sel{display:flex;align-items:center;gap:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:var(--texto)}
+  .item-sel:hover{background:#eef3f9}
+  .item-sel input{width:17px;height:17px;accent-color:var(--azul);cursor:pointer;flex:0 0 auto}
+  .item-sel .is-cod{font-weight:700;color:var(--azul-claro);font-size:12px;flex:0 0 auto;min-width:96px}
+  .item-sel .is-desc{color:var(--suave);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .painel-vazio{padding:18px 14px;color:var(--suave);font-size:13px;text-align:center}
+  /* selo discreto: data dos dados */
+  .dados-version{
+    position:fixed;right:12px;bottom:10px;z-index:30;
+    background:rgba(13,59,102,.85);color:#fff;font-size:11px;
+    padding:5px 10px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.25);
+    pointer-events:none;backdrop-filter:saturate(120%);
+  }
+  @media print{ .dados-version{display:none} }
   /* Separador de marca (logo uma vez por grupo) */
   .marca-sep{
     grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -223,6 +248,19 @@
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
     </div>
     <select id="filtroMarca" class="filtro"><option value="">Todas as marcas</option></select>
+    <div class="sel-wrap-btn">
+      <button type="button" class="filtro sel-btn" id="btnSelProdutos">☑ Selecionar produtos<span id="selBtnCount"></span></button>
+      <div class="painel-sel" id="painelSel">
+        <div class="painel-head">
+          <strong>Selecionar para exportar</strong>
+          <span class="painel-acts">
+            <button type="button" id="selTodos">Marcar todos</button>
+            <button type="button" id="selNenhum">Limpar</button>
+          </span>
+        </div>
+        <div class="painel-lista" id="listaSel"></div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -262,10 +300,12 @@
   </div>
 </div>
 
+<div class="dados-version" id="dadosVersao"></div>
 <footer>M. Ferretti · Catálogo Virtual</footer>
 
 <script src="produtos.js"></script>
 <script src="cadastro.js"></script>
+<script src="dados-version.js"></script>
 <script>
   // Extensões tentadas para cada imagem (a foto é nomeada pelo CÓDIGO do produto)
   var EXTENSOES = ["jpg","jpeg","png","webp"];
@@ -324,13 +364,12 @@
 
   function criaCard(p){
     var card = document.createElement("div");
-    card.className = "card";
+    card.className = "card" + (selecionados[p.codigo] ? " sel" : "");
+    card.setAttribute("data-cod", p.codigo);
     var c = cadDe(p);
     var marca = p.marca ? '<span class="marca-badge">' + p.marca + '</span>' : '';
-    var checked = selecionados[p.codigo] ? ' checked' : '';
     card.innerHTML =
       '<div class="img-box">' + marca +
-        '<label class="sel-wrap" title="Selecionar para exportar"><input type="checkbox" class="sel-prod"'+checked+'></label>' +
         '<img alt="' + (p.descricao||"") + '"></div>' +
       '<div class="info">' +
         '<span class="cod">COD ' + (p.codigo||"") + '</span>' +
@@ -345,14 +384,15 @@
       '<a class="baixar" href="#"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Baixar imagem</a>' +
       '<button class="dados-btn" type="button"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Dados cadastrais</button>';
     grid.appendChild(card);
-    var chk = card.querySelector(".sel-prod");
-    chk.addEventListener("change", function(){
-      if(chk.checked) selecionados[p.codigo] = true; else delete selecionados[p.codigo];
-      atualizaSelInfo();
-    });
     card.querySelector(".dados-btn").addEventListener("click", function(){ abreDados(p.codigo); });
     resolveImagem(card, p.codigo);
     return card;
+  }
+  function marcaCardsSelecionados(){
+    grid.querySelectorAll(".card[data-cod]").forEach(function(card){
+      if(selecionados[card.getAttribute("data-cod")]) card.classList.add("sel");
+      else card.classList.remove("sel");
+    });
   }
 
   function abreLightbox(url, nome){
@@ -436,6 +476,28 @@
     if(el) el.textContent = n ? (n + " selecionado(s)") : "";
     var lc = document.getElementById("limparSel");
     if(lc) lc.style.display = n ? "inline" : "none";
+    var bc = document.getElementById("selBtnCount");
+    if(bc) bc.textContent = n ? (" ("+n+")") : "";
+  }
+
+  // Lista de selecao (filtra junto com a marca/busca)
+  function montaPainelSel(vis){
+    var lst = document.getElementById("listaSel");
+    if(!lst) return;
+    if(!vis.length){ lst.innerHTML = '<div class="painel-vazio">Nenhum produto no filtro atual.</div>'; return; }
+    lst.innerHTML = vis.map(function(p){
+      var ck = selecionados[p.codigo] ? " checked" : "";
+      return '<label class="item-sel"><input type="checkbox" data-cod="'+p.codigo+'"'+ck+'>'
+        + '<span class="is-cod">'+p.codigo+'</span>'
+        + '<span class="is-desc">'+(p.descricao||"")+'</span></label>';
+    }).join("");
+    lst.querySelectorAll("input[type=checkbox]").forEach(function(cb){
+      cb.addEventListener("change", function(){
+        var cod = cb.getAttribute("data-cod");
+        if(cb.checked) selecionados[cod] = true; else delete selecionados[cod];
+        atualizaSelInfo(); marcaCardsSelecionados();
+      });
+    });
   }
 
   // Cores caracteristicas por marca (apresentacao)
@@ -644,6 +706,30 @@
     selecionados = {}; atualizaSelInfo(); render();
   });
 
+  // Painel da lista de selecao
+  var btnSelProdutos = document.getElementById("btnSelProdutos");
+  var painelSel = document.getElementById("painelSel");
+  btnSelProdutos.addEventListener("click", function(e){ e.stopPropagation(); painelSel.classList.toggle("open"); });
+  document.addEventListener("click", function(e){
+    if(painelSel.classList.contains("open") && !painelSel.contains(e.target)
+       && e.target !== btnSelProdutos && !btnSelProdutos.contains(e.target)){
+      painelSel.classList.remove("open");
+    }
+  });
+  document.getElementById("selTodos").addEventListener("click", function(){
+    filtrados.forEach(function(p){ selecionados[p.codigo] = true; });
+    montaPainelSel(filtrados); atualizaSelInfo(); marcaCardsSelecionados();
+  });
+  document.getElementById("selNenhum").addEventListener("click", function(){
+    selecionados = {}; montaPainelSel(filtrados); atualizaSelInfo(); marcaCardsSelecionados();
+  });
+
+  // Selo: data da ultima atualizacao dos DADOS/IMAGENS
+  (function(){
+    var el = document.getElementById("dadosVersao");
+    if(el) el.textContent = window.DADOS_ATUALIZADOS ? ("Dados atualizados em " + window.DADOS_ATUALIZADOS) : "";
+  })();
+
   // ===== Mapa marca → arquivo de logo (pasta marcas/) =====
   var MARCA_LOGO = {
     "AER":  "marcas/aeroflex.png",
@@ -702,24 +788,16 @@
              normaliza(p.marca).indexOf(f) > -1;
     });
     filtrados = vis;
-    // agrupa visíveis por marca (para o checkbox "selecionar marca")
-    var porMarca = {};
-    vis.forEach(function(p){ (porMarca[p.marca] = porMarca[p.marca] || []).push(p); });
-
     var marcaAtual = null;
     vis.forEach(function(p){
       // Insere separador com logo uma única vez por grupo de marca
       if(p.marca !== marcaAtual){
         marcaAtual = p.marca;
         var logoSrc = MARCA_LOGO[p.marca];
-        var grupo = porMarca[p.marca];
-        var todosSel = grupo.every(function(x){ return selecionados[x.codigo]; });
         var sep = document.createElement("div");
         sep.className = "marca-sep";
         sep.innerHTML =
           '<div class="marca-sep-in">'
-          + '<label class="sel-marca-wrap" title="Selecionar toda a marca">'
-          +   '<input type="checkbox" class="sel-marca"'+(todosSel?' checked':'')+'></label>'
           + (logoSrc
               ? '<img class="marca-logo" src="'+logoSrc+'" alt="'+p.marca+'">'
               : '<span class="marca-cod">'+p.marca+'</span>')
@@ -730,19 +808,13 @@
                 + 'logo</a>'
               : '');
         grid.appendChild(sep);
-        (function(g){
-          var cb = sep.querySelector('.sel-marca');
-          cb.addEventListener('change', function(){
-            g.forEach(function(x){ if(cb.checked) selecionados[x.codigo]=true; else delete selecionados[x.codigo]; });
-            render();
-          });
-        })(grupo);
       }
       criaCard(p);
     });
     vazio.style.display = vis.length ? "none" : "block";
     contador.textContent = vis.length + " de " + lista.length + " produto(s)";
     btnLimpar.style.display = (f || fMarca) ? "inline" : "none";
+    montaPainelSel(vis);
     atualizaSelInfo();
   }
 
