@@ -774,6 +774,22 @@
   // So mostra produtos que tem imagem cadastrada (presente no manifesto).
   if(DISP){ lista = lista.filter(function(p){ return Object.prototype.hasOwnProperty.call(DISP, p.codigo); }); }
 
+  // Ordena: MANTEM a ordem atual das marcas (1a aparicao) e, dentro de cada marca,
+  // ordena por descricao -> agrupa produtos da mesma categoria/linha lado a lado
+  // (tira manchas com tira manchas, yama babosa juntos, biocare juntos, etc.).
+  (function ordenaPorCategoria(){
+    var idxMarca = {}, n = 0;
+    lista.forEach(function(p){
+      var m = p.marca || "";
+      if(!(m in idxMarca)){ idxMarca[m] = n++; }
+    });
+    lista.sort(function(a,b){
+      var ma = a.marca || "", mb = b.marca || "";
+      if(ma !== mb) return idxMarca[ma] - idxMarca[mb];
+      return normaliza(a.descricao).localeCompare(normaliza(b.descricao), "pt-BR");
+    });
+  })();
+
   // Preenche os selects de fornecedor e marca a partir dos dados (ordenado)
   function preencheSelect(sel, valores){
     valores.sort(function(a,b){ return a.localeCompare(b, "pt-BR"); });
