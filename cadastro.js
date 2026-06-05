@@ -1,6 +1,5 @@
-﻿// cadastro.js - base de dados cadastrais (copia de MFerrettiGit/cadastro, var renomeada para window.CADASTRO)
-// produtos.js - gerado por build_cadastro.ps1 em 2026-05-29 11:43
-// Fonte: query Protheus (ERP) + ficha .xls (campos complementares).
+// cadastro.js - base de dados cadastrais (copia de MFerrettiGit/cadastro, var renomeada para window.CADASTRO)
+// Campos fiscais RED_ICMS, REGIME_PC e CST_PC acrescentados da ficha 2026.05 (merge por CODIGO) em 2026-06-05 19:00
 window.CADASTRO = [
     {
         "CODIGO":  "DESAERRFA",
@@ -38,7 +37,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "36",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERRFV",
@@ -76,7 +78,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "36",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERRHC",
@@ -114,7 +119,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "36",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERRIM",
@@ -152,7 +160,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "36",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERRPM",
@@ -190,7 +201,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "36",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMEM72H",
@@ -228,7 +242,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMFV72H",
@@ -266,7 +283,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMFA72H",
@@ -304,7 +324,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMFL72H",
@@ -342,7 +365,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMHC72H",
@@ -380,7 +406,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMHI72H",
@@ -418,7 +447,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMHP72H",
@@ -456,7 +488,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMIM72H",
@@ -494,7 +529,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMINT",
@@ -532,7 +570,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMINV",
@@ -570,7 +611,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMSMEN",
@@ -608,7 +652,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMMEN",
@@ -646,7 +693,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMPM72H",
@@ -684,7 +734,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMSP",
@@ -722,7 +775,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMTBOY",
@@ -760,7 +816,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMTGIR",
@@ -798,7 +857,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMTMEL",
@@ -836,7 +898,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMTPES",
@@ -874,7 +939,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMSUNI",
@@ -912,7 +980,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMUNI",
@@ -950,7 +1021,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMSWOM",
@@ -988,7 +1062,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "DESAERMWOM",
@@ -1026,7 +1103,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "ESPAERKIN150",
@@ -1064,7 +1144,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "INSAERCIT",
@@ -1102,7 +1185,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "INSAEREUC",
@@ -1140,7 +1226,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "INSAEREXT",
@@ -1178,7 +1267,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "INSAERLIM",
@@ -1216,7 +1308,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REPAERR150",
@@ -1254,7 +1349,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REPAERRF100",
@@ -1292,7 +1390,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REPAERRS105",
@@ -1330,7 +1431,10 @@ window.CADASTRO = [
         "CAIXA_L":  "12.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "CONBABC2",
@@ -1368,7 +1472,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CONBABST2",
@@ -1406,7 +1513,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CONBABS2",
@@ -1444,7 +1554,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CONBABCC2",
@@ -1482,7 +1595,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREBAB45",
@@ -1520,7 +1636,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "36",
-        "PALETE_ALT":  "14"
+        "PALETE_ALT":  "14",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREBAB90",
@@ -1558,7 +1677,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "12"
+        "PALETE_ALT":  "12",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABGSR2",
@@ -1596,7 +1718,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABSTR2",
@@ -1634,7 +1759,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABBABC70",
@@ -1672,7 +1800,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "12"
+        "PALETE_ALT":  "12",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABBABL70",
@@ -1710,7 +1841,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "12"
+        "PALETE_ALT":  "12",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABBABS70",
@@ -1748,7 +1882,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "12"
+        "PALETE_ALT":  "12",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABBABLQG2",
@@ -1786,7 +1923,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQG4",
@@ -1824,7 +1964,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQPD2",
@@ -1862,7 +2005,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQPD4",
@@ -1900,7 +2046,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQST2",
@@ -1938,7 +2087,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQST4",
@@ -1976,7 +2128,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQGR2",
@@ -2014,7 +2169,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.40",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "24",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABBABLQSTR2",
@@ -2052,7 +2210,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.40",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "24",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SHABABSC2",
@@ -2090,7 +2251,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABC2",
@@ -2128,7 +2292,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABST2",
@@ -2166,7 +2333,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABST4",
@@ -2204,7 +2374,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABS2",
@@ -2242,7 +2415,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABS4",
@@ -2280,7 +2456,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABCC2",
@@ -2318,7 +2497,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABCRE4",
@@ -2356,7 +2538,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABP4ST",
@@ -2394,7 +2579,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.0",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SHABABSP4SC",
@@ -2432,7 +2620,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.0",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ALGBELD50",
@@ -2470,7 +2661,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGBELDP100",
@@ -2508,7 +2702,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "HASBELBA",
@@ -2546,7 +2743,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "HASBELECO75",
@@ -2584,7 +2784,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "27",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "HASBELFT",
@@ -2622,7 +2825,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "HASBEL150",
@@ -2660,7 +2866,10 @@ window.CADASTRO = [
         "CAIXA_L":  "27",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "HASBEL75",
@@ -2698,7 +2907,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRIDE",
@@ -2736,7 +2948,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRIDEC",
@@ -2774,7 +2989,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRIDEPS",
@@ -2812,7 +3030,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRIDEV",
@@ -2850,7 +3071,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRIDFO",
@@ -2888,7 +3112,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRIDFA",
@@ -2926,7 +3153,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRISAB",
@@ -2964,7 +3194,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRITC",
@@ -3002,7 +3235,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIXBRIDE",
@@ -3040,7 +3276,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPBRITO",
@@ -3078,7 +3317,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "3",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABCLOUNAGL",
@@ -3116,7 +3358,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "10",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOUN80EL",
@@ -3154,7 +3399,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "10",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOUN80MA",
@@ -3192,7 +3440,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "10",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOUN80MK",
@@ -3230,7 +3481,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "10",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOUN80RF",
@@ -3268,7 +3522,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "10",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOALMPMGL",
@@ -3306,7 +3563,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOLMPM",
@@ -3344,7 +3604,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABCLOLMPMRF",
@@ -3382,7 +3645,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "SABCLO6UN",
@@ -3420,7 +3686,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CURCREB40",
@@ -3458,7 +3727,10 @@ window.CADASTRO = [
         "CAIXA_L":  "29.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "CURCRET40",
@@ -3496,7 +3768,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "CURCRET10",
@@ -3534,7 +3809,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "CURCREM25",
@@ -3572,7 +3850,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "24",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ANTDENAC",
@@ -3610,7 +3891,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENCL",
@@ -3648,7 +3932,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENCL250",
@@ -3686,7 +3973,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "28",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENCM250",
@@ -3724,7 +4014,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "28",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENCM",
@@ -3762,7 +4055,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENMI250",
@@ -3800,7 +4096,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "28",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENMI",
@@ -3838,7 +4137,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENSA",
@@ -3876,7 +4178,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENSE",
@@ -3914,7 +4219,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ANTDENBR",
@@ -3952,7 +4260,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENCPL3",
@@ -3990,7 +4301,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENIDD",
@@ -4028,7 +4342,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENITR",
@@ -4066,7 +4383,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENIMAF",
@@ -4104,7 +4424,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENODU",
@@ -4142,7 +4465,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENOMA",
@@ -4180,7 +4506,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENOME",
@@ -4218,7 +4547,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENPERMA",
@@ -4256,7 +4588,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENPERME",
@@ -4294,7 +4629,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENVMA",
@@ -4332,7 +4670,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESCDENVME",
@@ -4370,7 +4711,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "FIODEN150N",
@@ -4408,7 +4752,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "FIODENP100",
@@ -4446,7 +4793,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "FIODENPM100",
@@ -4484,7 +4834,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "FITDEN90",
@@ -4522,7 +4875,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "GELDENTU",
@@ -4560,7 +4916,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "SABFAR180AV",
@@ -4598,7 +4957,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR180EV",
@@ -4636,7 +4998,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR180FL",
@@ -4674,7 +5039,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR180LA",
@@ -4712,7 +5080,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR180PH",
@@ -4750,7 +5121,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR180FV",
@@ -4788,7 +5162,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR85PLP",
@@ -4826,7 +5203,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR90EV",
@@ -4864,7 +5244,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR90FC",
@@ -4902,7 +5285,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR90FV",
@@ -4940,7 +5326,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR90LS",
@@ -4978,7 +5367,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFAR90PL",
@@ -5016,7 +5408,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFARDESFB",
@@ -5054,7 +5449,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFARDESJY",
@@ -5092,7 +5490,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFARDESFL",
@@ -5130,7 +5531,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABFARLQANU",
@@ -5168,7 +5572,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "SABFARLQ5EH",
@@ -5206,7 +5613,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABFARLQ5FC",
@@ -5244,7 +5654,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABFARLQ5LA",
@@ -5282,7 +5695,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABFARLQ5PF",
@@ -5320,7 +5736,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED12",
@@ -5358,7 +5777,10 @@ window.CADASTRO = [
         "CAIXA_L":  "30.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "9",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED15",
@@ -5396,7 +5818,10 @@ window.CADASTRO = [
         "CAIXA_L":  "37.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "9",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED20",
@@ -5434,7 +5859,10 @@ window.CADASTRO = [
         "CAIXA_L":  "27.0",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "9",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED30",
@@ -5472,7 +5900,10 @@ window.CADASTRO = [
         "CAIXA_L":  "43",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "32",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED4",
@@ -5510,7 +5941,10 @@ window.CADASTRO = [
         "CAIXA_L":  "30.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "9",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED40",
@@ -5548,7 +5982,10 @@ window.CADASTRO = [
         "CAIXA_L":  "52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "30",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED50",
@@ -5586,7 +6023,10 @@ window.CADASTRO = [
         "CAIXA_L":  "63",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED7",
@@ -5624,7 +6064,10 @@ window.CADASTRO = [
         "CAIXA_L":  "30.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "9",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMGALLED9",
@@ -5662,7 +6105,10 @@ window.CADASTRO = [
         "CAIXA_L":  "30.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "9",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUMGALV30",
@@ -5700,7 +6146,10 @@ window.CADASTRO = [
         "CAIXA_L":  "57",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "8",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUMGALV40",
@@ -5738,7 +6187,10 @@ window.CADASTRO = [
         "CAIXA_L":  "86",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "4",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUMGALV45",
@@ -5776,7 +6228,10 @@ window.CADASTRO = [
         "CAIXA_L":  "66",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "6",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINCAR2",
@@ -5814,7 +6269,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINROS2",
@@ -5852,7 +6310,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINJAS2",
@@ -5890,7 +6351,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINCAM2",
@@ -5928,7 +6392,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINMAR2",
@@ -5966,7 +6433,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINROS5",
@@ -6004,7 +6474,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINJAS5",
@@ -6042,7 +6515,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINCAM5",
@@ -6080,7 +6556,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINMAR5",
@@ -6118,7 +6597,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINROSL2P1",
@@ -6156,7 +6638,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINJASL2P1",
@@ -6194,7 +6679,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINCAML2P1",
@@ -6232,7 +6720,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINROSL5P4",
@@ -6270,7 +6761,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINJASL5P4",
@@ -6308,7 +6802,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LUSKINCAML5P4",
@@ -6346,7 +6843,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINLUB",
@@ -6384,7 +6884,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINOPL1",
@@ -6422,7 +6925,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINOPT1",
@@ -6460,7 +6966,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINOPJ2",
@@ -6498,7 +7007,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINOPL2",
@@ -6536,7 +7048,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINOPT2",
@@ -6574,7 +7089,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINOPT5",
@@ -6612,7 +7130,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINRMC",
@@ -6650,7 +7171,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINRME",
@@ -6688,7 +7212,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINRMV",
@@ -6726,7 +7253,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REMKINLIMPL1",
@@ -6764,7 +7294,10 @@ window.CADASTRO = [
         "CAIXA_L":  "27.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "14",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REMKINLIMPL5",
@@ -6802,7 +7335,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REMKINLIMPM1",
@@ -6840,7 +7376,10 @@ window.CADASTRO = [
         "CAIXA_L":  "27.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "14",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "REMKINLIMPM5",
@@ -6878,7 +7417,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEKINV200",
@@ -6916,7 +7458,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "22",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "DESLEITG",
@@ -6954,7 +7499,10 @@ window.CADASTRO = [
         "CAIXA_L":  "26.9",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "DESLEITM",
@@ -6992,7 +7540,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "DESLEITP",
@@ -7030,7 +7581,10 @@ window.CADASTRO = [
         "CAIXA_L":  "25.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "DESLEIRTN",
@@ -7068,7 +7622,10 @@ window.CADASTRO = [
         "CAIXA_L":  "11.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "DESLEISTN",
@@ -7106,7 +7663,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "SABLEITN",
@@ -7144,7 +7704,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "12"
+        "PALETE_ALT":  "12",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALLEIBARLA",
@@ -7182,7 +7745,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALLEIBAR80",
@@ -7220,7 +7786,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.1",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALLEIJBARLA",
@@ -7258,7 +7827,10 @@ window.CADASTRO = [
         "CAIXA_L":  "14",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LIIMRAYCL5",
@@ -7296,7 +7868,10 @@ window.CADASTRO = [
         "CAIXA_L":  "32",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "11",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMRAYD5",
@@ -7334,7 +7909,10 @@ window.CADASTRO = [
         "CAIXA_L":  "32",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "11",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMNATCLO",
@@ -7372,7 +7950,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMNATV",
@@ -7410,7 +7991,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMNATA",
@@ -7448,7 +8032,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMNATINO",
@@ -7486,7 +8073,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMNATPED",
@@ -7524,7 +8114,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABNAT",
@@ -7562,7 +8155,10 @@ window.CADASTRO = [
         "CAIXA_L":  "24",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "10",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "DESNOBLQ",
@@ -7600,7 +8196,10 @@ window.CADASTRO = [
         "CAIXA_L":  "23",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "17",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "DESNOB300",
@@ -7638,7 +8237,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMNOBFOR",
@@ -7676,7 +8278,10 @@ window.CADASTRO = [
         "CAIXA_L":  "21",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "20",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "INSNOBFORM",
@@ -7714,7 +8319,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "40",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "PREPRUERL8P6",
@@ -7752,7 +8360,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUL8P6",
@@ -7790,7 +8401,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUL8P6US",
@@ -7828,7 +8442,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRULUB",
@@ -7866,7 +8483,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUSCH",
@@ -7904,7 +8524,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUSHO",
@@ -7942,7 +8565,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUSL8P6",
@@ -7980,7 +8606,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUSMO",
@@ -8018,7 +8647,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUSUV",
@@ -8056,7 +8688,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "PREPRUUS",
@@ -8094,7 +8729,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LIMSEMAIR",
@@ -8132,7 +8770,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMSEMLF",
@@ -8170,7 +8811,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABSEMC180",
@@ -8208,7 +8852,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABSEMC90",
@@ -8246,7 +8893,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "30",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABSEMCPACK180",
@@ -8284,7 +8934,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "SABSEMCPACK90",
@@ -8322,7 +8975,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "30",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMP",
@@ -8360,7 +9016,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPRP",
@@ -8398,7 +9057,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPW",
@@ -8436,7 +9098,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMASCWR5",
@@ -8474,7 +9139,10 @@ window.CADASTRO = [
         "CAIXA_L":  "28",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMASCR5",
@@ -8512,7 +9180,10 @@ window.CADASTRO = [
         "CAIXA_L":  "28",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "16",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMLRPE",
@@ -8550,7 +9221,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "20",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPRTM",
@@ -8588,7 +9262,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPRTW",
@@ -8626,7 +9303,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPRMW",
@@ -8664,7 +9344,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMASCW2",
@@ -8702,7 +9385,10 @@ window.CADASTRO = [
         "CAIXA_L":  "34.0",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMASC2",
@@ -8740,7 +9426,10 @@ window.CADASTRO = [
         "CAIXA_L":  "34.0",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "15",
-        "PALETE_ALT":  "3"
+        "PALETE_ALT":  "3",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMLJ",
@@ -8778,7 +9467,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "20",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMLC",
@@ -8816,7 +9508,10 @@ window.CADASTRO = [
         "CAIXA_L":  "26",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPL5",
@@ -8854,7 +9549,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMPLW5",
@@ -8892,7 +9590,10 @@ window.CADASTRO = [
         "CAIXA_L":  "22",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "4"
+        "PALETE_ALT":  "4",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTFD",
@@ -8930,7 +9631,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTF",
@@ -8968,7 +9672,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTG",
@@ -9006,7 +9713,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "26",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTM",
@@ -9044,7 +9754,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTMM",
@@ -9082,7 +9795,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTMW",
@@ -9120,7 +9836,10 @@ window.CADASTRO = [
         "CAIXA_L":  "20",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "TRASEMTFB",
@@ -9158,7 +9877,10 @@ window.CADASTRO = [
         "CAIXA_L":  "18.5",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "18",
-        "PALETE_ALT":  "10"
+        "PALETE_ALT":  "10",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ESPSHOLP",
@@ -9196,7 +9918,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "4",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ESPSHO48",
@@ -9234,7 +9959,10 @@ window.CADASTRO = [
         "CAIXA_L":  "10",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "4",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "ALGSUSBB1N",
@@ -9272,7 +10000,10 @@ window.CADASTRO = [
         "CAIXA_L":  "42",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "5",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSBB5N",
@@ -9310,7 +10041,10 @@ window.CADASTRO = [
         "CAIXA_L":  "39",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "5",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSBC5N",
@@ -9348,7 +10082,10 @@ window.CADASTRO = [
         "CAIXA_L":  "39",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "5",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSLF1N",
@@ -9386,7 +10123,10 @@ window.CADASTRO = [
         "CAIXA_L":  "32",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSQ40N",
@@ -9424,7 +10164,10 @@ window.CADASTRO = [
         "CAIXA_L":  "33",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSQ95N",
@@ -9462,7 +10205,10 @@ window.CADASTRO = [
         "CAIXA_L":  "26",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSR25",
@@ -9500,7 +10246,10 @@ window.CADASTRO = [
         "CAIXA_L":  "29",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "8",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSR50",
@@ -9538,7 +10287,10 @@ window.CADASTRO = [
         "CAIXA_L":  "25",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "8",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "ALGSUSZZ5",
@@ -9576,7 +10328,10 @@ window.CADASTRO = [
         "CAIXA_L":  "30",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "7",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LAMTECLED12",
@@ -9614,7 +10369,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.63",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED15",
@@ -9652,7 +10410,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.63",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED20",
@@ -9690,7 +10451,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.32",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED30",
@@ -9728,7 +10492,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.37",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED40",
@@ -9766,7 +10533,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.42",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED50",
@@ -9804,7 +10574,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.52",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED65",
@@ -9842,7 +10615,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.62",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "LAMTECLED9",
@@ -9880,7 +10656,10 @@ window.CADASTRO = [
         "CAIXA_L":  "0.58",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "",
-        "PALETE_ALT":  ""
+        "PALETE_ALT":  "",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENJNCAN",
@@ -9918,7 +10697,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENJACT",
@@ -9956,7 +10738,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENJORI",
@@ -9994,7 +10779,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENJSATO",
@@ -10032,7 +10820,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENJBAR",
@@ -10070,7 +10861,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPNCAN",
@@ -10108,7 +10902,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPACT",
@@ -10146,7 +10943,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPORI",
@@ -10184,7 +10984,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPPOD",
@@ -10222,7 +11025,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPSATO",
@@ -10260,7 +11066,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPBAR",
@@ -10298,7 +11107,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENJWOM",
@@ -10336,7 +11148,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "42",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TALTENPWOM",
@@ -10374,7 +11189,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.4",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "33,33%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "DETUNIP",
@@ -10412,7 +11230,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "13",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "DETUNI",
@@ -10450,7 +11271,10 @@ window.CADASTRO = [
         "CAIXA_L":  "32",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "11",
-        "PALETE_ALT":  "5"
+        "PALETE_ALT":  "5",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "DETUNI5",
@@ -10488,7 +11312,10 @@ window.CADASTRO = [
         "CAIXA_L":  "31",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "8",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMUNIMAQ",
@@ -10526,7 +11353,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "LIMUNIROUPA",
@@ -10564,7 +11394,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "12",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OLEWHIAERO",
@@ -10602,7 +11435,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17.3",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "25",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "TRIBUTADO",
+        "CST_PC":  "1"
     },
     {
         "CODIGO":  "OXIYAMCRE10",
@@ -10640,7 +11476,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "11"
+        "PALETE_ALT":  "11",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "OXIYAMCRE20",
@@ -10678,7 +11517,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "11"
+        "PALETE_ALT":  "11",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "OXIYAMCRE30",
@@ -10716,7 +11558,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "11"
+        "PALETE_ALT":  "11",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "OXIYAMCRE40",
@@ -10754,7 +11599,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "11"
+        "PALETE_ALT":  "11",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMBA2",
@@ -10792,7 +11640,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMBA3",
@@ -10830,7 +11681,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMBRA2",
@@ -10868,7 +11722,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMBRA3",
@@ -10906,7 +11763,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMQ2",
@@ -10944,7 +11804,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMQ3",
@@ -10982,7 +11845,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMA2",
@@ -11020,7 +11886,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMA3",
@@ -11058,7 +11927,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMBA9",
@@ -11096,7 +11968,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "11"
+        "PALETE_ALT":  "11",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMBRA9",
@@ -11134,7 +12009,10 @@ window.CADASTRO = [
         "CAIXA_L":  "13.2",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "45",
-        "PALETE_ALT":  "11"
+        "PALETE_ALT":  "11",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMCV3",
@@ -11172,7 +12050,10 @@ window.CADASTRO = [
         "CAIXA_L":  "17",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "CREYAMAH3",
@@ -11210,7 +12091,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16.7",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "29",
-        "PALETE_ALT":  "6"
+        "PALETE_ALT":  "6",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "CREYAMH2",
@@ -11248,7 +12132,10 @@ window.CADASTRO = [
         "CAIXA_L":  "15.6",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "31",
-        "PALETE_ALT":  "7"
+        "PALETE_ALT":  "7",
+        "RED_ICMS":  "",
+        "REGIME_PC":  "",
+        "CST_PC":  ""
     },
     {
         "CODIGO":  "TINYAMPAC20",
@@ -11286,7 +12173,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TINYAMPAC50",
@@ -11324,7 +12214,10 @@ window.CADASTRO = [
         "CAIXA_L":  "19.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "20",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TINYAMPAM20",
@@ -11362,7 +12255,10 @@ window.CADASTRO = [
         "CAIXA_L":  "16",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "33",
-        "PALETE_ALT":  "9"
+        "PALETE_ALT":  "9",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     },
     {
         "CODIGO":  "TINYAMPAM50",
@@ -11400,8 +12296,9 @@ window.CADASTRO = [
         "CAIXA_L":  "19.8",
         "CAIXA_UN_DIM":  "CM",
         "PALETE_LASTRO":  "20",
-        "PALETE_ALT":  "8"
+        "PALETE_ALT":  "8",
+        "RED_ICMS":  "52%",
+        "REGIME_PC":  "MONOFÁSICO",
+        "CST_PC":  "4"
     }
 ];
-
-

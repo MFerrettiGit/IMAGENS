@@ -481,8 +481,11 @@
       + '<div class="dc-bloco"><h3>Fiscal</h3><div class="dc-grid">'
       +   dcCampo('NCM',dcV(p.NCM))+dcCampo('CEST',dcV(p.CEST))+dcCampo('CFOP',dcV(p.CFOP))+dcCampo('CST',dcV(p.CST))
       +   dcCampo('IVA entrada',dcV(p.IVA_ENTRADA))+dcCampo('IVA saída',dcV(p.IVA_SAIDA))
-      +   dcCampo('ICMS',dcV(p.ICMS))+dcCampo('IPI',dcV(p.IPI))+dcCampo('Origem',dcV(p.ORIGEM))
-      + '</div><div class="dc-grid full" style="margin-top:7px">'+dcCampo('PIS/COFINS',dcV(p.PIS_COFINS))+'</div></div>'
+      +   dcCampo('ICMS',dcV(p.ICMS))+dcCampo('Redução ICMS',dcV(p.RED_ICMS))
+      +   dcCampo('IPI',dcV(p.IPI))+dcCampo('Origem',dcV(p.ORIGEM))
+      + '</div><div class="dc-grid" style="margin-top:7px">'
+      +   dcCampo('PIS/COFINS',dcV(p.PIS_COFINS))+dcCampo('Regime PIS/COFINS',dcV(p.REGIME_PC))+dcCampo('CST PIS/COFINS',dcV(p.CST_PC))
+      + '</div></div>'
       + '<div class="dc-bloco"><h3>Logística — Item</h3><div class="dc-grid">'
       +   dcCampo('Peso bruto',dcVs(p.ITEM_PESO_BRUTO,p.ITEM_UN_PESO||'kg'))+dcCampo('Peso líquido',dcVs(p.ITEM_PESO_LIQ,p.ITEM_UN_PESO||'kg'))
       +   dcCampo('Altura',dcVs(p.ITEM_A,p.ITEM_UN_DIM||'cm'))+dcCampo('Comprimento',dcVs(p.ITEM_C,p.ITEM_UN_DIM||'cm'))
@@ -569,8 +572,8 @@
     ['REFERÊNCIA','REFERENCIA'],['EAN','EAN'],['DUN','DUN'],['QTDE/CAIXA','CAIXA'],
     ['LOTE MÍNIMO','LOTE_MINIMO'],['VALIDADE','VALIDADE'],
     ['NCM','NCM'],['CEST','CEST'],['CFOP','CFOP'],['CST','CST'],
-    ['IVA ENTRADA','IVA_ENTRADA'],['IVA SAÍDA','IVA_SAIDA'],['ICMS','ICMS'],['IPI','IPI'],
-    ['ORIGEM','ORIGEM'],['PIS/COFINS','PIS_COFINS'],
+    ['IVA ENTRADA','IVA_ENTRADA'],['IVA SAÍDA','IVA_SAIDA'],['ICMS','ICMS'],['RED. ICMS','RED_ICMS'],['IPI','IPI'],
+    ['ORIGEM','ORIGEM'],['PIS/COFINS','PIS_COFINS'],['REGIME PIS/COFINS','REGIME_PC'],['CST PIS/COFINS','CST_PC'],
     ['PESO BRUTO ITEM','ITEM_PESO_BRUTO'],['PESO LÍQ ITEM','ITEM_PESO_LIQ'],
     ['A ITEM (cm)','ITEM_A'],['C ITEM (cm)','ITEM_C'],['L ITEM (cm)','ITEM_L'],
     ['PESO BRUTO CAIXA','CAIXA_PESO_BRUTO'],['PESO LÍQ CAIXA','CAIXA_PESO_LIQ'],
@@ -610,9 +613,12 @@
       {h:'IVA ENTRADA',    k:'IVA_ENTRADA',      w:80},
       {h:'IVA SAÍDA',      k:'IVA_SAIDA',        w:80},
       {h:'ICMS',           k:'ICMS',             w:60},
+      {h:'RED. ICMS',      k:'RED_ICMS',         w:75},
       {h:'IPI',            k:'IPI',              w:60},
       {h:'ORIGEM',         k:'ORIGEM',           w:60},
-      {h:'PIS/COFINS',     k:'PIS_COFINS',       w:120},
+      {h:'PIS/COFINS',     k:'PIS_COFINS',       w:90},
+      {h:'REGIME PIS/COF', k:'REGIME_PC',        w:110},
+      {h:'CST PIS/COF',    k:'CST_PC',           w:80},
       {h:'PB ITEM (kg)',   k:'ITEM_PESO_BRUTO',  w:80},
       {h:'PL ITEM (kg)',   k:'ITEM_PESO_LIQ',    w:80},
       {h:'A ITEM (cm)',    k:'ITEM_A',           w:75},
@@ -631,7 +637,7 @@
       ITEM_PESO_BRUTO:1,ITEM_PESO_LIQ:1,ITEM_A:1,ITEM_C:1,ITEM_L:1,
       CAIXA_PESO_BRUTO:1,CAIXA_PESO_LIQ:1,CAIXA_A:1,CAIXA_C:1,CAIXA_L:1,
       PALETE_LASTRO:1,PALETE_ALT:1};
-    var monoFields = {CODIGO:1,EAN:1,DUN:1,NCM:1,CEST:1,CFOP:1,CST:1,ORIGEM:1};
+    var monoFields = {CODIGO:1,EAN:1,DUN:1,NCM:1,CEST:1,CFOP:1,CST:1,CST_PC:1,ORIGEM:1};
 
     var css = [
       'body{font-family:Calibri,Arial,sans-serif;font-size:10pt;margin:16px}',
