@@ -197,28 +197,39 @@
     #printArea .dc-campo .dc-rotulo{font-size:6pt;letter-spacing:.1px;line-height:1.05}
     #printArea .dc-campo .dc-valor{font-size:7.6pt;line-height:1.1}
 
-    /* ===== Apresentação de produtos (visual, com cores da marca) ===== */
+    /* ===== PDF APRESENTAÇÃO (layout aprovado Baruel/Linha Baby) ===== */
+    @page apresFull{size:A4 portrait;margin:0}
     body.modo-apres #apresArea, body.modo-apres #apresArea *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    #apresArea .ap-head{display:flex;align-items:center;gap:10px;border-bottom:3px solid #0d3b66;padding-bottom:5px;margin-bottom:5mm}
-    #apresArea .ap-flogo{height:34px}
-    #apresArea .ap-head span{font-size:8pt;color:#555;font-weight:700;letter-spacing:.5px}
-    #apresArea .ap-marca{margin-bottom:6mm}
-    #apresArea .ap-banner{display:flex;align-items:center;gap:12px;border-radius:9px;padding:8px 16px;color:#fff;margin-bottom:3mm;break-inside:avoid;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-    #apresArea .ap-logo{height:34px;background:#fff;border-radius:6px;padding:3px 7px}
-    #apresArea .ap-bnome{font-size:13pt;font-weight:800;letter-spacing:1px}
-    #apresArea .ap-bmarca{margin-left:auto;font-size:9pt;font-weight:700;letter-spacing:2px;opacity:.9;border:1px solid rgba(255,255,255,.6);padding:2px 8px;border-radius:20px}
-    #apresArea .ap-grid{display:flex;flex-wrap:wrap;gap:4mm}
-    #apresArea .ap-card{width:calc((100% - 8mm)/3);border:2px solid #ccc;border-radius:11px;overflow:hidden;background:#fff;display:flex;flex-direction:column;break-inside:avoid;page-break-inside:avoid;box-shadow:0 1px 3px rgba(0,0,0,.15)}
-    #apresArea .ap-bar{height:6px}
-    #apresArea .ap-img{height:42mm;display:flex;align-items:center;justify-content:center;background:#f7f9fc;padding:3mm;position:relative}
-    #apresArea .ap-img img{max-width:100%;max-height:100%;object-fit:contain}
-    #apresArea .ap-img.sem::after{content:'sem imagem';color:#b9c0d0;font-size:7pt;font-style:italic}
-    #apresArea .ap-desc{font-size:8.2pt;font-weight:800;line-height:1.12;padding:5px 9px 1px;min-height:24px;color:#1c2733}
-    #apresArea .ap-cod{font-size:7.5pt;font-weight:700;padding:0 9px 4px;font-family:Consolas,monospace}
-    #apresArea .ap-campos{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0 9px 8px;margin-top:auto}
-    #apresArea .ap-campos div{font-size:6.9pt;color:#2a2f3a;border-top:1px solid #eef0f4;padding:2px 0}
-    #apresArea .ap-campos b{display:inline-block;min-width:26px;color:#9aa1b0;font-weight:800}
+    .ax-page{page:apresFull;position:relative;width:210mm;height:297mm;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;page-break-after:always;break-after:page}
+    .ax-page:last-child{page-break-after:auto}
+    .ax-body{position:relative;height:297mm;display:flex;flex-direction:column;padding:6.5mm 6.5mm 4mm}
+    .ax-header{display:flex;align-items:center;gap:3mm;flex:0 0 auto}
+    .ax-hcell{flex:0 0 40mm;display:flex;align-items:center}
+    .ax-hcell.right{justify-content:flex-end}
+    .ax-mlogo{height:18mm;max-width:40mm;object-fit:contain}
+    .ax-flogo{height:9mm;max-width:38mm;object-fit:contain}
+    .ax-headline{flex:1;text-align:center}
+    .ax-kicker{font-size:7pt;color:var(--ax-kicker);letter-spacing:3px;font-weight:600;text-transform:uppercase}
+    .ax-linha{font-size:22pt;font-weight:900;color:var(--ax-dark);letter-spacing:.5px;line-height:1.05}
+    .ax-divider{height:2px;background:linear-gradient(90deg,transparent,var(--ax-accent) 18%,var(--ax-accent) 82%,transparent);margin:2.4mm 0 1.6mm;border-radius:2px;flex:0 0 auto}
+    .ax-grid{flex:1 1 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:1mm 2.5mm;min-height:0}
+    .ax-tile{display:flex;flex-direction:column;min-height:0}
+    .ax-photo{flex:1 1 auto;width:100%;display:flex;align-items:flex-end;justify-content:center;min-height:0}
+    .ax-photo img{max-width:92%;max-height:80%;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(30,90,140,0.30))}
+    .ax-photo.sem{align-items:center}
+    .ax-photo.sem::after{content:'sem imagem';font-size:7pt;color:#aac;font-style:italic}
+    .ax-info{width:100%;flex:0 0 auto;text-align:center;margin-top:1mm}
+    .ax-desc{font-size:9pt;font-weight:800;color:var(--ax-dark);line-height:1.16;margin-bottom:.8mm;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:8mm}
+    .ax-cod{font-size:7pt;color:var(--ax-dark);font-family:Consolas,monospace;margin-bottom:1.4mm}
+    .ax-dados{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2mm 1.4mm}
+    .ax-dados span{display:inline-flex;align-items:baseline;gap:1.2mm;background:linear-gradient(180deg,#fff,var(--ax-chipbg));border:1.6px solid var(--ax-border);border-radius:999px;padding:.7mm 2.6mm;font-size:8pt;color:var(--ax-val);font-weight:700;box-shadow:0 1px 2px rgba(45,120,180,0.20),inset 0 1px 0 rgba(255,255,255,.9);font-variant-numeric:tabular-nums;white-space:nowrap}
+    .ax-dados b{color:var(--ax-label);font-weight:800;font-size:6.2pt;letter-spacing:.4px;text-transform:uppercase}
+    .ax-footer{display:flex;justify-content:space-between;align-items:center;padding-top:1.4mm;margin-top:1.4mm;border-top:1px solid var(--ax-border);font-size:6.5pt;color:var(--ax-footer);letter-spacing:.3px;flex:0 0 auto}
   }
+  /* overlay "gerando catalogo" (na tela) */
+  #apresLoad{position:fixed;inset:0;background:rgba(13,59,102,.55);display:none;align-items:center;justify-content:center;z-index:60}
+  #apresLoad.on{display:flex}
+  #apresLoad div{background:#fff;padding:20px 28px;border-radius:12px;font:600 15px "Segoe UI";color:#0d3b66;box-shadow:0 10px 30px rgba(0,0,0,.3)}
   /* Lightbox */
   #lightbox{
     position:fixed;inset:0;background:rgba(10,20,30,.9);display:none;
@@ -282,6 +293,7 @@
 
 <div id="printArea"></div>
 <div id="apresArea"></div>
+<div id="apresLoad"><div>Gerando catálogo… aguarde</div></div>
 
 <div id="dadosModal">
   <div class="dc-wrap">
@@ -669,43 +681,165 @@
     window.print();
   }
 
-  // ===== PDF de APRESENTACAO (visual, com cores da marca) =====
-  function exportarApresentacao(){
+  // ===== PDF de APRESENTACAO (layout aprovado Baruel) — recriado no navegador =====
+  // Config por marca: fundo de referencia e nome da linha (preenchidos 1 a 1).
+  var APRES_BG = {
+    "BAB": "apres-bg/BAB.png"
+  };
+  var APRES_LINHA = {
+    "BAB": "Linha Baby"
+  };
+  var APRES_NOME = {
+    AER:"Aeroflex", BAB:"Baruel", BEL:"Bella Cotton", BRI:"Brics", CLO:"Cloy",
+    CRE:"Bella Cotton", DEN:"Dentics", FAR:"Farnese", GAL:"Galaxy", KIN:"King",
+    LEI:"Leite de Rosas", MUL:"Multionic", NAT:"Nathan", PRU:"Prudence", SEM:"Semorin",
+    SHO:"Superfine", SUS:"Sussex", TEC:"TechLuz", TEN:"Tenys", TENW:"Tenys",
+    UNI:"Unione", WHI:"Orbi", YAM:"Yama"
+  };
+  function nomeMarca(m){ return APRES_NOME[m] || m; }
+
+  // ---- cores ----
+  function _hx(h){ h=h.replace('#',''); return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]; }
+  function _hex(r,g,b){ function c(x){ x=Math.max(0,Math.min(255,Math.round(x))); return ('0'+x.toString(16)).slice(-2);} return '#'+c(r)+c(g)+c(b); }
+  function _dark(h,f){ var c=_hx(h); return _hex(c[0]*f,c[1]*f,c[2]*f); }
+  function _mixW(h,t){ var c=_hx(h); return _hex(c[0]+(255-c[0])*t,c[1]+(255-c[1])*t,c[2]+(255-c[2])*t); }
+  function _lum(h){ var c=_hx(h); return 0.299*c[0]+0.587*c[1]+0.114*c[2]; }
+  function buildPalette(base){
+    var isLight = _lum(base) > 150;
+    var accent = isLight ? _dark(base,0.80) : base;
+    var dark   = isLight ? _dark(base,0.42) : _dark(base,0.55);
+    return {
+      accent:accent, dark:dark,
+      border:_dark(base,0.82), chipbg:_mixW(base,0.86),
+      label:_dark(base,0.58), val:dark,
+      kicker:_mixW(dark,0.30), footer:_mixW(dark,0.42),
+      pageBg:_mixW(base,0.90)
+    };
+  }
+
+  // ---- imagens (canvas): remove fundo branco + recorta ----
+  var _imgCache = {};
+  function loadImage(src){ return new Promise(function(res){ var i=new Image(); i.crossOrigin='anonymous'; i.onload=function(){res(i);}; i.onerror=function(){res(null);}; i.src=src; }); }
+  function removeBgTrim(img){
+    var w=img.naturalWidth, h=img.naturalHeight;
+    if(!w||!h) return '';
+    var cv=document.createElement('canvas'); cv.width=w; cv.height=h;
+    var ctx=cv.getContext('2d'); ctx.drawImage(img,0,0);
+    var id; try{ id=ctx.getImageData(0,0,w,h); }catch(e){ return ''; }
+    var d=id.data, thr=238, soft=205, N=w*h;
+    var vis=new Uint8Array(N), stack=[];
+    for(var x=0;x<w;x++){ stack.push(x); stack.push((h-1)*w+x); }
+    for(var y=0;y<h;y++){ stack.push(y*w); stack.push(y*w+(w-1)); }
+    while(stack.length){
+      var idx=stack.pop(); if(vis[idx])continue; vis[idx]=1; var o=idx*4;
+      if(!(d[o]>=thr&&d[o+1]>=thr&&d[o+2]>=thr))continue;
+      d[o+3]=0; var px=idx%w, py=(idx/w)|0, n;
+      if(px>0){ n=idx-1; if(!vis[n])stack.push(n);} if(px<w-1){ n=idx+1; if(!vis[n])stack.push(n);}
+      if(py>0){ n=idx-w; if(!vis[n])stack.push(n);} if(py<h-1){ n=idx+w; if(!vis[n])stack.push(n);}
+    }
+    for(var i=0;i<N;i++){ var oo=i*4; if(d[oo+3]===0)continue;
+      var mn=Math.min(d[oo],d[oo+1],d[oo+2]);
+      if(mn>=soft){ var adj=false, nb=[i-1,i+1,i-w,i+w];
+        for(var k=0;k<4;k++){ var nn=nb[k]; if(nn>=0&&nn<N&&d[nn*4+3]===0){adj=true;break;} }
+        if(adj){ var a=Math.round(255*(255-mn)/(255-soft)); d[oo+3]=Math.max(0,Math.min(255,a)); }
+      }
+    }
+    ctx.putImageData(id,0,0);
+    var minX=w,minY=h,maxX=-1,maxY=-1;
+    for(var yy=0;yy<h;yy++){ for(var xx=0;xx<w;xx++){ if(d[(yy*w+xx)*4+3]>12){ if(xx<minX)minX=xx; if(xx>maxX)maxX=xx; if(yy<minY)minY=yy; if(yy>maxY)maxY=yy; } } }
+    if(maxX<0) return '';
+    var pad=Math.round(Math.max(w,h)*0.01);
+    minX=Math.max(0,minX-pad); minY=Math.max(0,minY-pad); maxX=Math.min(w-1,maxX+pad); maxY=Math.min(h-1,maxY+pad);
+    var cw=maxX-minX+1, ch=maxY-minY+1;
+    var cv2=document.createElement('canvas'); cv2.width=cw; cv2.height=ch;
+    cv2.getContext('2d').drawImage(cv,minX,minY,cw,ch,0,0,cw,ch);
+    return cv2.toDataURL('image/png');
+  }
+  function prepImg(src){ return new Promise(function(res){
+    if(_imgCache[src]!==undefined){ res(_imgCache[src]); return; }
+    loadImage(src).then(function(img){ var r = img ? removeBgTrim(img) : ''; _imgCache[src]=r; res(r); });
+  }); }
+  function sampleAccent(img){
+    var tw=90, th=Math.max(1,Math.round(img.naturalHeight*90/img.naturalWidth));
+    var cv=document.createElement('canvas'); cv.width=tw; cv.height=th;
+    var ctx=cv.getContext('2d'); ctx.drawImage(img,0,0,tw,th);
+    var d; try{ d=ctx.getImageData(0,0,tw,th).data; }catch(e){ return ''; }
+    var sr=0,sg=0,sb=0,cnt=0,dr=0,dg=0,db=0,dc=0;
+    for(var i=0;i<tw*th;i++){ var o=i*4,r=d[o],g=d[o+1],b=d[o+2];
+      var mx=Math.max(r,g,b),mn=Math.min(r,g,b),v=mx/255,s=mx===0?0:(mx-mn)/mx;
+      if(s>0.20&&v>0.18&&v<0.97){ sr+=r;sg+=g;sb+=b;cnt++; }
+      if(v<0.6){ dr+=r;dg+=g;db+=b;dc++; }
+    }
+    if(cnt>=20) return _hex(sr/cnt,sg/cnt,sb/cnt);
+    if(dc>0)    return _hex(dr/dc,dg/dc,db/dc);
+    return '';
+  }
+  function accentPalette(bgUrl,m){ return new Promise(function(res){
+    if(bgUrl){ loadImage(bgUrl).then(function(bi){ var base = bi ? (sampleAccent(bi)||'') : ''; res(buildPalette(base || corMarca(m))); }); }
+    else { res(buildPalette(corMarca(m))); }
+  }); }
+
+  async function exportarApresentacao(){
     var alvo = alvoExport();
     if(!alvo.length){ alert('Selecione produtos ou ajuste o filtro para a apresentação.'); return; }
-    var grupos = {}, ordem = [];
-    alvo.forEach(function(p){ if(!grupos[p.marca]){ grupos[p.marca]=[]; ordem.push(p.marca); } grupos[p.marca].push(p); });
+    var load = document.getElementById('apresLoad'); load.classList.add('on');
+    try{
+      var grupos = {}, ordem = [];
+      alvo.forEach(function(p){ if(!grupos[p.marca]){ grupos[p.marca]=[]; ordem.push(p.marca); } grupos[p.marca].push(p); });
 
-    var html = '';
-    ordem.forEach(function(m){
-      var cor = corMarca(m), logo = MARCA_LOGO[m];
-      html += '<section class="ap-marca">'
-        + '<div class="ap-banner" style="background:linear-gradient(135deg,'+cor+','+escurece(cor)+')">'
-        +   (logo ? '<img class="ap-logo" src="'+logo+'" alt="'+m+'">' : '<span class="ap-bnome">'+m+'</span>')
-        +   '<span class="ap-bmarca">'+m+'</span>'
-        + '</div><div class="ap-grid">';
-      grupos[m].forEach(function(prod){
-        var c = cadDe(prod);
-        html += '<div class="ap-card" style="border-color:'+cor+'">'
-          + '<div class="ap-bar" style="background:'+cor+'"></div>'
-          + '<div class="ap-img"><img src="'+PASTA+prod.codigo+'.'+extDe(prod.codigo)+'" alt="" '
-          +   'onerror="this.style.display=\'none\';this.parentNode.classList.add(\'sem\')"></div>'
-          + '<div class="ap-desc">'+(prod.descricao||'')+'</div>'
-          + '<div class="ap-cod" style="color:'+cor+'">'+(prod.codigo||'')+'</div>'
-          + '<div class="ap-campos">'
-          +   '<div><b>EAN</b>'+(prod.ean||c.EAN||'—')+'</div>'
-          +   '<div><b>DUN</b>'+(c.DUN||'—')+'</div>'
-          +   '<div><b>NCM</b>'+(c.NCM||'—')+'</div>'
-          +   '<div><b>Cx</b>'+(c.CAIXA||'—')+'</div>'
-          + '</div></div>';
-      });
-      html += '</div></section>';
-    });
-    apresArea.innerHTML = '<div class="ap-head"><img src="logo-ferretti.png" class="ap-flogo" alt="Ferretti">'
-      + '<span>CATÁLOGO DE PRODUTOS · '+alvo.length+' item(ns) · '+new Date().toLocaleDateString('pt-BR')+'</span></div>'
-      + html;
-    document.body.classList.add('modo-apres');
-    window.print();
+      var html = '';
+      for(var gi=0; gi<ordem.length; gi++){
+        var m = ordem[gi];
+        var bgUrl = APRES_BG[m] || '';
+        var linha = APRES_LINHA[m] || nomeMarca(m);
+        var pal = await accentPalette(bgUrl, m);
+        var mlogoSrc = MARCA_LOGO[m] ? await prepImg(MARCA_LOGO[m]) : '';
+        var mlogoHtml = mlogoSrc ? '<img class="ax-mlogo" src="'+mlogoSrc+'" alt="">' : '<span class="ax-linha" style="font-size:13pt">'+nomeMarca(m)+'</span>';
+        var todos = grupos[m];
+        var totalPags = Math.ceil(todos.length/8);
+
+        for(var pi=0; pi<todos.length; pi+=8){
+          var pagina = todos.slice(pi, pi+8);
+          var pNum = Math.floor(pi/8)+1;
+          var tiles = '';
+          for(var ti=0; ti<pagina.length; ti++){
+            var prod = pagina[ti], c = cadDe(prod);
+            var proc = await prepImg(PASTA+prod.codigo+'.'+extDe(prod.codigo));
+            var photo = proc ? '<img src="'+proc+'" alt="">' : '';
+            var sem = proc ? '' : ' sem';
+            tiles += '<div class="ax-tile"><div class="ax-photo'+sem+'">'+photo+'</div>'
+              + '<div class="ax-info"><div class="ax-desc">'+(prod.descricao||'')+'</div>'
+              + '<div class="ax-cod">'+(prod.codigo||'')+'</div>'
+              + '<div class="ax-dados">'
+              +   '<span><b>EAN</b>'+(prod.ean||c.EAN||'—')+'</span>'
+              +   '<span><b>DUN</b>'+(c.DUN||'—')+'</span>'
+              +   '<span><b>NCM</b>'+(c.NCM||'—')+'</span>'
+              +   '<span><b>CX</b>'+(c.CAIXA||'—')+'</span>'
+              + '</div></div></div>';
+          }
+          var bgStyle = bgUrl ? "background-image:url('"+bgUrl+"')" : "background:"+pal.pageBg;
+          var vars = '--ax-accent:'+pal.accent+';--ax-dark:'+pal.dark+';--ax-border:'+pal.border
+            +';--ax-chipbg:'+pal.chipbg+';--ax-label:'+pal.label+';--ax-val:'+pal.val
+            +';--ax-kicker:'+pal.kicker+';--ax-footer:'+pal.footer;
+          html += '<div class="ax-page" style="'+bgStyle+';'+vars+'">'
+            + '<div class="ax-body">'
+            +   '<div class="ax-header"><div class="ax-hcell">'+mlogoHtml+'</div>'
+            +     '<div class="ax-headline"><div class="ax-kicker">CATÁLOGO DE PRODUTOS</div><div class="ax-linha">'+linha+'</div></div>'
+            +     '<div class="ax-hcell right"><img class="ax-flogo" src="logo-ferretti.png" alt="Ferretti"></div></div>'
+            +   '<div class="ax-divider"></div>'
+            +   '<div class="ax-grid">'+tiles+'</div>'
+            +   '<div class="ax-footer"><span>M. Ferretti Distribuidora</span><span>Pág. '+pNum+' / '+totalPags+'</span></div>'
+            + '</div></div>';
+        }
+      }
+      apresArea.innerHTML = html;
+      load.classList.remove('on');
+      document.body.classList.add('modo-apres');
+      window.print();
+    } catch(err){
+      load.classList.remove('on');
+      alert('Erro ao gerar a apresentação: '+err.message);
+    }
   }
 
   window.addEventListener('afterprint', function(){
