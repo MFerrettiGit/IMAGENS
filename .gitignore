@@ -3,3 +3,10 @@ _cat-*.html
 _check-*.png
 _nobg/
 .claude/
+# Artefatos de teste/depuracao (servidor local, headless, harnesses)
+_srv.*
+_*test.html
+_*dom.txt
+_result.txt
+_srvstatus.txt
+_cudd*/

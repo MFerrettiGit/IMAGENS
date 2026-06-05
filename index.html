@@ -805,6 +805,24 @@
     else { res(buildPalette(corMarca(m))); }
   }); }
 
+  // Espera TODAS as imagens (fotos embutidas, fundos CSS e logos) carregarem e
+  // decodificarem antes de imprimir. Sem isso, com muitas paginas o navegador
+  // chama print() antes de pintar e o fundo/fotos saem em branco.
+  function aguardaImagensApres(container, bgUrls){
+    var proms = [];
+    Array.prototype.slice.call(container.querySelectorAll('img')).forEach(function(im){
+      proms.push(new Promise(function(r){
+        function done(){ if(im.decode){ im.decode().then(r).catch(function(){ r(); }); } else { r(); } }
+        if(im.complete && im.naturalWidth){ done(); }
+        else { im.addEventListener('load', done); im.addEventListener('error', function(){ r(); }); }
+      }));
+    });
+    Object.keys(bgUrls||{}).forEach(function(u){
+      proms.push(new Promise(function(r){ var x=new Image(); x.onload=function(){ r(); }; x.onerror=function(){ r(); }; x.src=u; }));
+    });
+    return Promise.all(proms);
+  }
+
   async function exportarApresentacao(){
     var alvo = alvoExport();
     if(!alvo.length){ alert('Selecione produtos ou ajuste o filtro para a apresentação.'); return; }
@@ -814,9 +832,11 @@
       alvo.forEach(function(p){ if(!grupos[p.marca]){ grupos[p.marca]=[]; ordem.push(p.marca); } grupos[p.marca].push(p); });
 
       var html = '';
+      var bgUsados = {};
       for(var gi=0; gi<ordem.length; gi++){
         var m = ordem[gi];
         var bgUrl = APRES_BG[m] || '';
+        if(bgUrl) bgUsados[bgUrl] = true;
         var linha = APRES_LINHA[m] || nomeMarca(m);
         var pal = await accentPalette(bgUrl, m);
         var mlogoSrc = MARCA_LOGO[m] ? await prepImg(MARCA_LOGO[m]) : '';
@@ -859,8 +879,12 @@
         }
       }
       apresArea.innerHTML = html;
-      load.classList.remove('on');
       document.body.classList.add('modo-apres');
+      // So imprime depois que fotos, fundos e logos terminarem de carregar/decodificar.
+      await aguardaImagensApres(apresArea, bgUsados);
+      await new Promise(function(r){ var d=false,go=function(){ if(d)return; d=true; r(); };
+        requestAnimationFrame(function(){ requestAnimationFrame(go); }); setTimeout(go,300); });
+      load.classList.remove('on');
       window.print();
     } catch(err){
       load.classList.remove('on');
