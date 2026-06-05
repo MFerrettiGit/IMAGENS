@@ -183,25 +183,25 @@
     @page{size:A4 portrait;margin:6mm}
     /* cabecalho enxuto no topo da 1a pagina (nao gera pagina propria) */
     #printArea .ph{text-align:center;font-size:7.5pt;color:#333;margin:0 0 2mm 0;font-weight:600}
-    /* 2 por folha: cada cadastro ocupa ~40% da folha (altura fixa) */
+    /* 2 por folha: cada cadastro ocupa ~metade da folha (usa a altura toda) */
     #printArea .dc-card{
-      box-shadow:none;border:1px solid #8a90a6;border-radius:7px;margin:0 0 6mm 0;
-      height:119mm;overflow:hidden;
+      box-shadow:none;border:1px solid #8a90a6;border-radius:7px;margin:0 0 3mm 0;
+      height:138mm;overflow:hidden;
       break-inside:avoid;page-break-inside:avoid;display:flex;flex-direction:column;
     }
     #printArea .dc-card:nth-of-type(2n){page-break-after:always;margin-bottom:0}
     #printArea .dc-top{padding:4px 9px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     #printArea .dc-top .dc-cod{font-size:6.5pt}
-    #printArea .dc-top .dc-desc{font-size:9.5pt;line-height:1.1;margin-top:1px}
+    #printArea .dc-top .dc-desc{font-size:10pt;line-height:1.1;margin-top:1px}
     #printArea .dc-top .dc-marca{font-size:6.5pt;margin-top:2px;padding:1px 6px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    #printArea .dc-bloco{padding:2px 9px}
-    #printArea .dc-bloco h3{font-size:6.3pt;margin-bottom:1px;letter-spacing:.4px}
-    /* 3 colunas para caber TODOS os campos em meia folha */
-    #printArea .dc-grid{grid-template-columns:repeat(3,1fr);gap:0 10px}
+    #printArea .dc-bloco{padding:2.5px 9px}
+    #printArea .dc-bloco h3{font-size:6.5pt;margin-bottom:2px;letter-spacing:.4px}
+    /* 5 colunas: cabem TODOS os campos (inclui Logistica Item e Caixa) em meia folha */
+    #printArea .dc-grid{grid-template-columns:repeat(5,1fr);gap:1px 8px}
     #printArea .dc-grid.full{grid-template-columns:1fr}
-    #printArea .dc-campo{margin-bottom:1px}
+    #printArea .dc-campo{margin-bottom:1.5px}
     #printArea .dc-campo .dc-rotulo{font-size:6pt;letter-spacing:.1px;line-height:1.05}
-    #printArea .dc-campo .dc-valor{font-size:7.6pt;line-height:1.1}
+    #printArea .dc-campo .dc-valor{font-size:8pt;line-height:1.12}
 
     /* ===== PDF APRESENTAÇÃO (layout aprovado Baruel/Linha Baby) ===== */
     @page apresFull{size:A4 portrait;margin:0}
@@ -645,7 +645,7 @@
       '.sep{background:#1d5d99;color:#fff;font-weight:bold;font-size:11pt;',
         'padding:8px 10px;border:1px solid #0d3b66;letter-spacing:.5px}',
       '.num{text-align:right}',
-      '.mono{font-family:Consolas,monospace;font-size:9pt}'
+      '.mono{font-family:Consolas,monospace;font-size:9pt;mso-number-format:"\\@"}'
     ].join('');
 
     var ncols = COLUNAS.length;
