@@ -10,3 +10,5 @@ _*dom.txt
 _result.txt
 _srvstatus.txt
 _cudd*/
+_verify*.html
+_shot*.png

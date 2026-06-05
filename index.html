@@ -166,6 +166,12 @@
   .export-btn:hover{background:var(--azul-claro)}
   .export-btn.alt{background:#e6007e}
   .export-btn.alt:hover{background:#b8005f}
+  .export-btn.alt2{background:#1d7a4d}
+  .export-btn.alt2:hover{background:#155f3b}
+  .painel-logo{width:min(280px,90vw)}
+  .item-logo{text-decoration:none}
+  .item-logo .is-desc{color:var(--texto);white-space:normal}
+  .logo-sw{width:18px;height:18px;border-radius:4px;flex:0 0 auto;display:inline-block}
   .sel-info{font-size:12px;color:var(--azul);font-weight:700}
   /* Areas de impressao (PDF) — escondidas na tela */
   #printArea, #apresArea{display:none}
@@ -284,6 +290,22 @@
       <button class="export-btn alt" id="btnApres" type="button">🖼️ PDF Apresentação</button>
       <button class="export-btn" id="btnPdf" type="button">📄 PDF Cadastral</button>
       <button class="export-btn" id="btnXlsx" type="button">📊 XLSX</button>
+      <div class="sel-wrap-btn">
+        <button class="export-btn alt2" id="btnLogoFerretti" type="button">⬇️ Logo Ferretti</button>
+        <div class="painel-sel painel-logo" id="painelLogo">
+          <div class="painel-head"><strong>Baixar logo Ferretti</strong></div>
+          <div class="painel-lista">
+            <a class="item-sel item-logo" href="logo-ferretti-azul.png" download="logo-ferretti-azul.png">
+              <span class="logo-sw" style="background:#2B2FA8"></span>
+              <span class="is-desc">Logo azul &middot; para fundo claro</span>
+            </a>
+            <a class="item-sel item-logo" href="logo-ferretti-branco.png" download="logo-ferretti-branco.png">
+              <span class="logo-sw" style="background:#fff;border:1px solid var(--borda)"></span>
+              <span class="is-desc">Logo branca &middot; para fundo escuro</span>
+            </a>
+          </div>
+        </div>
+      </div>
       <button class="limpar" id="limpar" style="display:none">Limpar filtros</button>
     </div>
   </div>
@@ -697,7 +719,12 @@
     "TEC": "apres-bg/TEC.jpg",
     "TEN": "apres-bg/TEN.jpg",
     "UNI": "apres-bg/UNI.jpg",
-    "WHI": "apres-bg/WHI.jpg"
+    "WHI": "apres-bg/WHI.jpg",
+    "BRI": "apres-bg/BRI.jpg",
+    "CLO": "apres-bg/CLO.jpg",
+    "SHO": "apres-bg/SHO.jpg",
+    "SUS": "apres-bg/SUS.jpg",
+    "YAM": "apres-bg/YAM.jpg"
   };
   var APRES_LINHA = {
     "BAB": "Linha Baby",
@@ -713,7 +740,12 @@
     "TEC": "Linha TechLuz",
     "TEN": "Linha Tenys",
     "UNI": "Linha Unione",
-    "WHI": "Linha Orbi"
+    "WHI": "Linha Orbi",
+    "BRI": "Linha Brics",
+    "CLO": "Linha Cloy",
+    "SHO": "Linha Superfine",
+    "SUS": "Linha Sussex",
+    "YAM": "Linha Yama"
   };
   var APRES_NOME = {
     AER:"Aeroflex", BAB:"Baruel", BEL:"Bella Cotton", BRI:"Brics", CLO:"Cloy",
@@ -913,6 +945,19 @@
       painelSel.classList.remove("open");
     }
   });
+  // Popover: baixar logo Ferretti (azul/branca)
+  var btnLogoFerretti = document.getElementById("btnLogoFerretti");
+  var painelLogo = document.getElementById("painelLogo");
+  if(btnLogoFerretti && painelLogo){
+    btnLogoFerretti.addEventListener("click", function(e){ e.stopPropagation(); painelLogo.classList.toggle("open"); });
+    document.addEventListener("click", function(e){
+      if(painelLogo.classList.contains("open") && !painelLogo.contains(e.target)
+         && e.target !== btnLogoFerretti && !btnLogoFerretti.contains(e.target)){
+        painelLogo.classList.remove("open");
+      }
+    });
+  }
+
   document.getElementById("selTodos").addEventListener("click", function(){
     filtrados.forEach(function(p){ selecionados[p.codigo] = true; });
     montaPainelSel(filtrados); atualizaSelInfo(); marcaCardsSelecionados();
