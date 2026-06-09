@@ -286,5 +286,9 @@ const PRODUTOS = [
   { codigo: "ESPBRITC", descricao: "ESPONJA TIRA CROSTA BRICS 2UN", ean: "7896488200154", fornecedor: "SVM", marca: "BRI" },
   { codigo: "ESPBRITO", descricao: "TOUCA P/ BANHO DELICATA 2UN", ean: "7896488202011", fornecedor: "SVM", marca: "BRI" },
   { codigo: "LIXBRIDE", descricao: "LIXA PARA PES DELICATA", ean: "7896488202165", fornecedor: "SVM", marca: "BRI" },
+  { codigo: "HIDCLOGC", descricao: "HID CLOY GENTLE CARE 250ML", ean: "7897751904137", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
+  { codigo: "HIDCLOPC", descricao: "HID CLOY PURE CARE 250ML", ean: "7897751903925", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
+  { codigo: "SABCLO120GC", descricao: "SAB CLOY 1X120G GENTLE CARE", ean: "7897751904151", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
+  { codigo: "SABCLO120PC", descricao: "SAB CLOY 1X120G PURE CARE", ean: "7897751904144", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
 ];
 
