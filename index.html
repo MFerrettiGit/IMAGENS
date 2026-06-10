@@ -339,6 +339,7 @@
 
 <script src="produtos.js"></script>
 <script src="cadastro.js"></script>
+<script src="classif.js"></script>
 <script src="imagens-manifest.js"></script>
 <script src="dados-version.js"></script>
 <script>
@@ -1010,18 +1011,21 @@
   if(DISP){ lista = lista.filter(function(p){ return Object.prototype.hasOwnProperty.call(DISP, p.codigo); }); }
 
   // Ordena: MANTEM a ordem atual das marcas (1a aparicao) e, dentro de cada marca,
-  // ordena por descricao -> agrupa produtos da mesma categoria/linha lado a lado
-  // (tira manchas com tira manchas, yama babosa juntos, biocare juntos, etc.).
+  // ordena por CLASSIFICACAO (window.CLASSIF, so p/ ordenar) e depois por CODIGO.
   (function ordenaPorCategoria(){
     var idxMarca = {}, n = 0;
     lista.forEach(function(p){
       var m = p.marca || "";
       if(!(m in idxMarca)){ idxMarca[m] = n++; }
     });
+    var CL = window.CLASSIF || {};
     lista.sort(function(a,b){
       var ma = a.marca || "", mb = b.marca || "";
       if(ma !== mb) return idxMarca[ma] - idxMarca[mb];
-      return normaliza(a.descricao).localeCompare(normaliza(b.descricao), "pt-BR");
+      // sem classificacao vai por ultimo dentro da marca
+      var ca = normaliza(CL[a.codigo] || "￿"), cb = normaliza(CL[b.codigo] || "￿");
+      if(ca !== cb) return ca.localeCompare(cb, "pt-BR");
+      return normaliza(a.codigo).localeCompare(normaliza(b.codigo), "pt-BR");
     });
   })();
 
