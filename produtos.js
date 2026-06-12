@@ -175,6 +175,7 @@ const PRODUTOS = [
   { codigo: "REMKINLIMPL1", descricao: "REMOV KINLIMP LAVANDA 1L", ean: "7896050505793", fornecedor: "KING", marca: "KIN" },
   { codigo: "REMKINLIMPL5", descricao: "REMOV KINLIMP LAVANDA 500ML", ean: "7896050505786", fornecedor: "KING", marca: "KIN" },
   { codigo: "REMKINLIMPM1", descricao: "REMOV KINLIMP MARINE 1L", ean: "7896050594476", fornecedor: "KING", marca: "KIN" },
+  { codigo: "REMKINLIMPM5", descricao: "REMOV KINLIMP MARINE 500ML", ean: "7896050594483", fornecedor: "KING", marca: "KIN" },
   { codigo: "DESLEIRTN", descricao: "DES ROLLON L R TRAD 50ML", ean: "7896806790626", fornecedor: "LEITE DE ROSAS", marca: "LEI" },
   { codigo: "DESLEISTN", descricao: "DES SPRAY L R TRAD  90ML", ean: "7896806790633", fornecedor: "LEITE DE ROSAS", marca: "LEI" },
   { codigo: "DESLEITG", descricao: "DES LEITE ROSAS GRANDE 170ML", ean: "7896806700038", fornecedor: "LEITE DE ROSAS", marca: "LEI" },
