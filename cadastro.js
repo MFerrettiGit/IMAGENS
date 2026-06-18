@@ -12507,7 +12507,7 @@ window.CADASTRO = [
         "CST_PC":  ""
     },
     {
-        "CODIGO":  "CONFARD14",
+        "CODIGO":  "CONFARDI4",
         "DESCRICAO":  "COND FARNESE BIOCARE RESGATE INSTANTANEO 400ML",
         "MARCA":  "FAR",
         "FORNECEDOR":  "SINTER",
