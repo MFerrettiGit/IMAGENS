@@ -862,6 +862,21 @@
     return Promise.all(proms);
   }
 
+  // proxy de TAMANHO real do produto (cm): maior dimensao se confiavel (>=3cm),
+  // senao gramas da descricao (85G<180G<6X85G), senao peso liq. So afeta o TAMANHO da foto.
+  function axNum(v){ var n=parseFloat(String(v==null?'':v).replace(',','.')); return isFinite(n)?n:0; }
+  function axSizeProxy(c, prod){
+    c=c||{};
+    var a=axNum(c.ITEM_A), cc=axNum(c.ITEM_C), l=axNum(c.ITEM_L), mx=Math.max(a,cc,l);
+    if(mx>=3) return mx;
+    var desc=String((prod&&prod.descricao)||c.DESCRICAO||'');
+    var g=0, m=desc.match(/(\d+)\s*[xX]\s*(\d+)\s*[gG]\b/);
+    if(m){ g=parseFloat(m[1])*parseFloat(m[2]); } else { var m1=desc.match(/(\d+)\s*[gG]\b/); if(m1) g=parseFloat(m1[1]); }
+    if(g>0) return 5 + g/30;
+    var peso=axNum(c.ITEM_PESO_LIQ); if(peso>0) return 5 + peso*1000/30;
+    return 8;
+  }
+
   async function exportarApresentacao(){
     var alvo = alvoExport();
     if(!alvo.length){ alert('Selecione produtos ou ajuste o filtro para a apresentação.'); return; }
@@ -886,11 +901,16 @@
         for(var pi=0; pi<todos.length; pi+=8){
           var pagina = todos.slice(pi, pi+8);
           var pNum = Math.floor(pi/8)+1;
+          // referencia de tamanho = maior produto DA PAGINA (foto proporcional ao tamanho real)
+          var maxProx = 1;
+          for(var mp=0; mp<pagina.length; mp++){ var pv=axSizeProxy(cadDe(pagina[mp]), pagina[mp]); if(pv>maxProx) maxProx=pv; }
           var tiles = '';
           for(var ti=0; ti<pagina.length; ti++){
             var prod = pagina[ti], c = cadDe(prod);
             var proc = await prepImg(PASTA+prod.codigo+'.'+extDe(prod.codigo));
-            var photo = proc ? '<img src="'+proc+'" alt="">' : '';
+            var axf = Math.sqrt(axSizeProxy(c, prod)/maxProx); if(axf<0.42) axf=0.42; if(axf>1) axf=1;
+            var axsty = 'max-height:'+(80*axf).toFixed(1)+'%;max-width:'+(92*axf).toFixed(1)+'%';
+            var photo = proc ? '<img src="'+proc+'" style="'+axsty+'" alt="">' : '';
             var sem = proc ? '' : ' sem';
             tiles += '<div class="ax-tile"><div class="ax-photo'+sem+'">'+photo+'</div>'
               + '<div class="ax-info"><div class="ax-desc">'+(prod.descricao||'')+'</div>'
