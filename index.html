@@ -218,18 +218,18 @@
     .ax-kicker{font-size:7pt;color:var(--ax-kicker);letter-spacing:3px;font-weight:600;text-transform:uppercase}
     .ax-linha{font-size:22pt;font-weight:900;color:var(--ax-dark);letter-spacing:.5px;line-height:1.05}
     .ax-divider{height:2px;background:linear-gradient(90deg,transparent,var(--ax-accent) 18%,var(--ax-accent) 82%,transparent);margin:2.4mm 0 1.6mm;border-radius:2px;flex:0 0 auto}
-    .ax-grid{flex:1 1 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:1mm 2.5mm;min-height:0}
+    .ax-grid{flex:1 1 auto;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(4,1fr);gap:1.4mm 1.6mm;min-height:0}
     .ax-tile{display:flex;flex-direction:column;min-height:0}
     .ax-photo{flex:1 1 auto;width:100%;display:flex;align-items:flex-end;justify-content:center;min-height:0}
-    .ax-photo img{max-width:92%;max-height:80%;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(30,90,140,0.30))}
+    .ax-photo img{max-width:96%;max-height:88%;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(30,90,140,0.28))}
     .ax-photo.sem{align-items:center}
-    .ax-photo.sem::after{content:'sem imagem';font-size:7pt;color:#aac;font-style:italic}
-    .ax-info{width:100%;flex:0 0 auto;text-align:center;margin-top:1mm}
-    .ax-desc{font-size:9pt;font-weight:800;color:var(--ax-dark);line-height:1.16;margin-bottom:.8mm;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:8mm}
-    .ax-cod{font-size:7pt;color:var(--ax-dark);font-family:Consolas,monospace;margin-bottom:1.4mm}
-    .ax-dados{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2mm 1.4mm}
-    .ax-dados span{display:inline-flex;align-items:baseline;gap:1.2mm;background:linear-gradient(180deg,#fff,var(--ax-chipbg));border:1.6px solid var(--ax-border);border-radius:999px;padding:.7mm 2.6mm;font-size:8pt;color:var(--ax-val);font-weight:700;box-shadow:0 1px 2px rgba(45,120,180,0.20),inset 0 1px 0 rgba(255,255,255,.9);font-variant-numeric:tabular-nums;white-space:nowrap}
-    .ax-dados b{color:var(--ax-label);font-weight:800;font-size:6.2pt;letter-spacing:.4px;text-transform:uppercase}
+    .ax-photo.sem::after{content:'sem imagem';font-size:6pt;color:#aac;font-style:italic}
+    .ax-info{width:100%;flex:0 0 auto;text-align:center;margin-top:.6mm}
+    .ax-desc{font-size:7pt;font-weight:800;color:var(--ax-dark);line-height:1.12;margin-bottom:.5mm;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:5.8mm}
+    .ax-cod{font-size:5.6pt;color:var(--ax-dark);font-family:Consolas,monospace;margin-bottom:.9mm}
+    .ax-dados{display:flex;flex-wrap:wrap;justify-content:center;gap:.8mm .8mm}
+    .ax-dados span{display:inline-flex;align-items:baseline;gap:.8mm;background:linear-gradient(180deg,#fff,var(--ax-chipbg));border:1.1px solid var(--ax-border);border-radius:999px;padding:.4mm 1.7mm;font-size:6pt;color:var(--ax-val);font-weight:700;box-shadow:0 1px 2px rgba(45,120,180,0.18),inset 0 1px 0 rgba(255,255,255,.9);font-variant-numeric:tabular-nums;white-space:nowrap}
+    .ax-dados b{color:var(--ax-label);font-weight:800;font-size:4.8pt;letter-spacing:.3px;text-transform:uppercase}
     .ax-footer{display:flex;justify-content:space-between;align-items:center;padding-top:1.4mm;margin-top:1.4mm;border-top:1px solid var(--ax-border);font-size:6.5pt;color:var(--ax-footer);letter-spacing:.3px;flex:0 0 auto}
   }
   /* overlay "gerando catalogo" (na tela) */
@@ -896,11 +896,12 @@
         var mlogoSrc = MARCA_LOGO[m] ? await prepImg(MARCA_LOGO[m]) : '';
         var mlogoHtml = mlogoSrc ? '<img class="ax-mlogo" src="'+mlogoSrc+'" alt="">' : '<span class="ax-linha" style="font-size:13pt">'+nomeMarca(m)+'</span>';
         var todos = grupos[m];
-        var totalPags = Math.ceil(todos.length/8);
+        var PORPAG = 20;  // fileiras de 5 x 4 linhas (ocupa melhor a folha)
+        var totalPags = Math.ceil(todos.length/PORPAG);
 
-        for(var pi=0; pi<todos.length; pi+=8){
-          var pagina = todos.slice(pi, pi+8);
-          var pNum = Math.floor(pi/8)+1;
+        for(var pi=0; pi<todos.length; pi+=PORPAG){
+          var pagina = todos.slice(pi, pi+PORPAG);
+          var pNum = Math.floor(pi/PORPAG)+1;
           // referencia de tamanho = maior produto DA PAGINA (foto proporcional ao tamanho real)
           var maxProx = 1;
           for(var mp=0; mp<pagina.length; mp++){ var pv=axSizeProxy(cadDe(pagina[mp]), pagina[mp]); if(pv>maxProx) maxProx=pv; }
