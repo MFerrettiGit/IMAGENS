@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    LISTA DE PRODUTOS DO BANCO DE IMAGENS - M. Ferretti
    Campos: codigo (= nome do arquivo da foto), descricao, ean, fornecedor, marca
    A foto vai na pasta "imagens/" com o nome = CODIGO (ex.: imagens/DESAERMEM72H.jpg)
@@ -291,5 +291,26 @@ const PRODUTOS = [
   { codigo: "HIDCLOPC", descricao: "HID CLOY PURE CARE 250ML", ean: "7897751903925", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
   { codigo: "SABCLO120GC", descricao: "SAB CLOY 1X120G GENTLE CARE", ean: "7897751904151", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
   { codigo: "SABCLO120PC", descricao: "SAB CLOY 1X120G PURE CARE", ean: "7897751904144", fornecedor: "SINTER FUTURA LTDA", marca: "CLO" },
+  { codigo: "TRASEMTG", descricao: "SEMORIN TIRA GORDURA 150ML", ean: "7898917072943", fornecedor: "SEMORIN", marca: "SEM" },
+  { codigo: "LAMGALLED9", descricao: "LAMP GALAXY LED 9W 6500K", ean: "7899932504020", fornecedor: "GALAXY", marca: "GAL" },
+  { codigo: "LAMGALLED12", descricao: "LAMP GALAXY LED 12W 6500K", ean: "7899932504044", fornecedor: "GALAXY", marca: "GAL" },
+  { codigo: "LAMGALLED15", descricao: "LAMP GALAXY LED 15W 6500K", ean: "7899932507274", fornecedor: "GALAXY", marca: "GAL" },
+  { codigo: "LAMGALLED20", descricao: "LAMP GALAXY LED 20W 6500K", ean: "7899932504181", fornecedor: "GALAXY", marca: "GAL" },
+  { codigo: "LAMGALLED30", descricao: "LAMP GALAXY LED 30W 6500K", ean: "7899932502361", fornecedor: "GALAXY", marca: "GAL" },
+  { codigo: "LAMGALLED40", descricao: "LAMP GALAXY LED 40W 6500K", ean: "7899932502378", fornecedor: "GALAXY", marca: "GAL" },
+  { codigo: "LUSKINMAR2", descricao: "L M PEROBA 200ML MARINE", ean: "7896050503522", fornecedor: "KING", marca: "KIN" },
+  { codigo: "LUSKINMAR5", descricao: "L M PEROBA 500ML MARINE", ean: "7896050503546", fornecedor: "KING", marca: "KIN" },
+  { codigo: "LUSKINJASL2P1", descricao: "L M PEROBA L200P180ML JASMIM", ean: "7896050593851", fornecedor: "KING", marca: "KIN" },
+  { codigo: "LUSKINJASL5P4", descricao: "L M PEROBA L500P450ML JASMIM", ean: "7896050593868", fornecedor: "KING", marca: "KIN" },
+  { codigo: "LUSKINROSL2P1", descricao: "L M PEROBA L200P180ML F.CAMPO", ean: "7896050593639", fornecedor: "KING", marca: "KIN" },
+  { codigo: "LUSKINROSL5P4", descricao: "L M PEROBA L500P450ML F.CAMPO", ean: "7896050593684", fornecedor: "KING", marca: "KIN" },
+  { codigo: "CREYAMBRA3", descricao: "CR MULT YAMA BRANCO 320ML", ean: "7896150000020", fornecedor: "YAMA", marca: "YAM" },
+  { codigo: "CREYAMBRA9", descricao: "CR MULT YAMASTEROL BRANCO 90ML", ean: "7896150000013", fornecedor: "YAMA", marca: "YAM" },
+  { codigo: "CREYAMH2", descricao: "CR MULT YAMASTEROL HIALURONICO 200ML", ean: "7896150020172", fornecedor: "YAMA", marca: "YAM" },
+  { codigo: "ALGBELDP100", descricao: "ALG DISCO B COTTON L100P80 UN", ean: "7898947390284", fornecedor: "VIVEO", marca: "BEL" },
+  { codigo: "CURCRET40", descricao: "CURATIVO CREMER TRANPARENTE 40", ean: "7891800341942", fornecedor: "VIVEO", marca: "CRE" },
+  { codigo: "SABCLOLMPMRF", descricao: "SAB CLOY 6X80G RED FRUITS", ean: "7897751902898", fornecedor: "SINTER", marca: "CLO" },
+  { codigo: "SHABABSC2", descricao: "SH 2 EM 1 BABY 210ML", ean: "7896020163572", fornecedor: "BARUEL", marca: "BAB" },
+  { codigo: "PREPRUERL8P6", descricao: "PRESER PRUDENCE EF RET L8P6U", ean: "7898079006404", fornecedor: "DKT", marca: "PRU" },
 ];
 
