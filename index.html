@@ -1079,12 +1079,8 @@
              normaliza(p.marca).indexOf(f) > -1;
     });
     filtrados = vis;
-    // Coerencia filtro<->selecao: descarta selecionados que sairam da tela
-    // (ao trocar de marca ou quando a busca esconde itens), pra nada "invisivel"
-    // entrar na exportacao.
-    var visSet = {};
-    vis.forEach(function(p){ visSet[p.codigo] = true; });
-    Object.keys(selecionados).forEach(function(cod){ if(!visSet[cod]) delete selecionados[cod]; });
+    // A selecao PERSISTE ao buscar/filtrar: itens selecionados que saem do filtro
+    // continuam marcados (so saem com "Limpar selecao"). Pedido do usuario 2026-06.
     var marcaAtual = null;
     vis.forEach(function(p){
       // Insere separador com logo uma única vez por grupo de marca
@@ -1120,7 +1116,7 @@
     clearTimeout(t);
     t = setTimeout(render, 120);
   });
-  selMarca.addEventListener("change", function(){ selecionados = {}; render(); });
+  selMarca.addEventListener("change", render);  // mantem a selecao ao trocar de marca
   btnLimpar.addEventListener("click", function(){
     busca.value = ""; selMarca.value = "";
     render();
