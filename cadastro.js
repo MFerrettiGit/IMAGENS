@@ -8496,7 +8496,7 @@ window.CADASTRO = [
         "REFERENCIA":  "000A1038",
         "EAN":  "7898079001003",
         "DUN":  "17898079001000",
-        "CAIXA":  "",
+        "CAIXA":  "24",
         "LOTE_MINIMO":  "8",
         "NCM":  "40141000",
         "CEST":  "1301300",
